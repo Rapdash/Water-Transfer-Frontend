@@ -7,7 +7,7 @@ export const menuRoutes = {
     ],
     loggedInPages: [
         { title: 'For Sale', path: '/listings', icon: water },
-        { title: 'Water Wanted (COMING SOON)', path: '/water-wanted', icon: cash },
+        // { title: 'Water Wanted (COMING SOON)', path: '/water-wanted', icon: cash },
         { title: 'My Listings', path: '/my-listings', icon: list },
         { title: 'My Offers', path: '/my-offers', icon: contacts },
         { title: 'Create New Listing', path: '/create-listing', icon: add },
