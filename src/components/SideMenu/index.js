@@ -1,12 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import { IonMenu, IonHeader, IonToolbar, IonMenuToggle, IonTitle, IonItem, IonList, IonContent } from "@ionic/react";
 
-import AuthContext from "../../data/AuthContext";
 import { MenuListItems } from "./MenuListItems";
 
 export const SideMenu = () => {
-    const auth = useContext(AuthContext);
-
     return (
         <IonMenu contentId="menu-content">
         <IonHeader>

@@ -1,4 +1,4 @@
-import { logIn, mailOpen, water, cash, list, contacts, add, person, arrowRoundBack, medkit } from "ionicons/icons"
+import { logIn, mailOpen, water, /* cash, */ list, contacts, add, person, arrowRoundBack, medkit } from "ionicons/icons"
 
 export const menuRoutes = {
     loggedOutPages: [
