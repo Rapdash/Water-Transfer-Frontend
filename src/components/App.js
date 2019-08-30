@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Router } from "./Router";
+import { Router } from "./Router/index"; // Not sure why webpack doesn't like the /index-less import
 import { AuthProvider } from "../data/AuthContext";
 
 export const App = () => {
