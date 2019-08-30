@@ -4,7 +4,7 @@ import { Router } from "./Router/index"; // Not sure why webpack doesn't like th
 import { AuthProvider } from "../data/AuthContext";
 
 export const App = () => {
-    const [authState, setAuthState] = useState({ user: null });
+    const [authState, setAuthState] = useState({});
     return (
         <AuthProvider value={{ user: authState, setUser: setAuthState }}>
             <Router />
