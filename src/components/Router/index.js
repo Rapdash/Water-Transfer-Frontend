@@ -2,6 +2,8 @@ import React from "react";
 import { IonApp, IonHeader, IonSplitPane, IonMenu, IonToolbar, IonContent, IonTitle, IonList, IonItem, IonLabel } from "@ionic/react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
+import "./router.module.css";
+
 export const Router = () => (
     <BrowserRouter>
         <IonApp>
@@ -15,7 +17,7 @@ export const Router = () => (
                     <IonContent>
                         <IonList>
                             <IonItem>
-                                <IonLabel className="ion-text-center">Menu</IonLabel>
+                                <IonLabel className="ion-text-center list-head-item">Menu</IonLabel>
                             </IonItem>
                         </IonList>
                     </IonContent>
