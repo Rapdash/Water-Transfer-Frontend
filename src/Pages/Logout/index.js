@@ -5,11 +5,8 @@ import { login } from "../../constants/routes";
 
 export const LogoutPage = () => {
     const auth = useContext(AuthContext);
-    console.log(auth.setUser);
-    auth.setUser(null);
-    console.log(auth.user);
+    auth.setAuthState(null);
     localStorage.removeItem("token");
-    console.log("works")
     return (
         <Redirect to={login} />
     )
