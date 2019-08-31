@@ -2,6 +2,8 @@ import React from "react";
 import { IonApp, IonContent, IonSplitPane } from "@ionic/react";
 
 import { Header } from "./Header";
+import { Router } from "./Router";
+import { SideMenu } from "./SideMenu";
 
 export const Layout = () => (
     <IonApp>
