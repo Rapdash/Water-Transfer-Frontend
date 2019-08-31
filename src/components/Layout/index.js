@@ -20,4 +20,4 @@ export const Layout = () => (
             </IonContent>
         </Router>
     </IonApp>
-)
+);
