@@ -1,5 +1,5 @@
 import React from "react";
-import { IonMenu, IonHeader, IonToolbar, IonMenuToggle, IonTitle, IonItem, IonList, IonContent } from "@ionic/react";
+import { IonMenu, IonTitle, IonItem, IonList, IonContent } from "@ionic/react";
 
 import { MenuListItems } from "./MenuListItems";
 

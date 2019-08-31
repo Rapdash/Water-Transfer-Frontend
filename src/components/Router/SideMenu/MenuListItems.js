@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import { IonItem, IonLabel, IonIcon } from "@ionic/react";
 
-import { menuRoutes } from "../../../constants/menuRoutes";
+import { menuRoutes } from "../../../constants/menuData";
 import { history } from "../../../data/history";
 import AuthContext from "../../../data/AuthContext";
 
 export const MenuListItems = () => {
     const auth = useContext(AuthContext);
+    console.log(auth);
     
     let items;
     if (auth.user) {

@@ -6,7 +6,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { SideMenu } from "./SideMenu";
 import { Header } from "./Header";
 
-import { LoginPage } from "../../Pages/Login";
+import { LoginPage } from "../../Pages";
+import { LogoutPage } from "../../Pages";
 
 
 export const Router = () => (
@@ -18,7 +19,10 @@ export const Router = () => (
                     <SideMenu />
                     <IonContent id="menu-content">
                         <Switch>
+                            {/* Non-Authed */}
                             <Route path="/" exact component={LoginPage} />
+                            {/* Authed */}
+                            <Route path="/logout" component={LogoutPage} />
                         </Switch>
                     </IonContent>
                 </IonSplitPane>

@@ -19,6 +19,7 @@ export const Header = () => (
                     <IonIcon />
                 </IonButton>
             </IonButtons>
+            {/* End Spacing-Only Button */}
         </IonToolbar>
     </IonHeader>
 )
