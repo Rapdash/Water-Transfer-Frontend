@@ -13,7 +13,7 @@ export const MenuListItems = () => {
     if (auth.user) {
         items = menuRoutes["loggedInPages"].map(({ title, path, icon }) => {
             return (
-                <IonItem key={title} onClick={() => history.push(path)}>
+                <IonItem button key={title} onClick={() => history.push(path)}>
                     <IonLabel>{title}</IonLabel>
                     <IonIcon icon={icon} slot="start" />
                 </IonItem>
@@ -22,7 +22,7 @@ export const MenuListItems = () => {
     } else {
         items = menuRoutes["loggedOutPages"].map(({ title, path, icon }) => {
             return (
-                <IonItem key={title} onClick={() => history.push(path)}>
+                <IonItem button key={title} onClick={() => history.push(path)}>
                     <IonLabel>{title}</IonLabel>
                 </IonItem>
             )
