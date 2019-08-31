@@ -4,8 +4,8 @@ import { IonApp, IonContent, IonSplitPane } from "@ionic/react";
 import { AuthProvider } from "../data/AuthContext";
 
 import { Router } from "./Router/index"; // Not sure why webpack doesn't like the /index-less import
-import { Header } from "./Router/Header";
-import { SideMenu } from "./Router/SideMenu";
+import { Header } from "./Layout/Header";
+import { SideMenu } from "./Layout/SideMenu";
 
 
 export const App = () => {
