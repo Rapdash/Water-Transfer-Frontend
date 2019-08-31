@@ -7,7 +7,6 @@ import AuthContext from "../../../data/AuthContext";
 
 export const MenuListItems = () => {
     const auth = useContext(AuthContext);
-    console.log(auth);
     
     let items;
     if (auth.user) {
@@ -15,7 +14,7 @@ export const MenuListItems = () => {
             return (
                 <IonItem button key={title} onClick={() => history.push(path)}>
                     <IonLabel>{title}</IonLabel>
-                    <IonIcon icon={icon} slot="start" />
+                    <IonIcon color="primary" icon={icon} slot="start" />
                 </IonItem>
             )
         });
@@ -24,6 +23,7 @@ export const MenuListItems = () => {
             return (
                 <IonItem button key={title} onClick={() => history.push(path)}>
                     <IonLabel>{title}</IonLabel>
+                    <IonIcon color="primary" icon={icon} slot="start" />
                 </IonItem>
             )
         });
