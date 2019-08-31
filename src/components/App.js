@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { IonSpinner } from "@ionic/react";
 
+import { authCheck } from "../data/authCheck";
 import { AuthProvider } from "../data/AuthContext";
 
 import { Layout } from "./Layout";
-import { IonSpinner } from "@ionic/react";
-import Axios from "axios";
 
 
 export const App = () => {
@@ -12,25 +12,10 @@ export const App = () => {
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
-        const authCheck = async () => {
-            if (localStorage.getItem("token")) {
-                try {
-                    const response = await Axios.get("http://localhost:9001/user/account", { headers: { Authorization: localStorage.getItem("token")}});
-                    setAuthState(response.data);
-                    setIsLoaded(true);
-                } catch {
-                    setAuthState(null);
-                    setIsLoaded(true);
-                }
-            } else {
-                setAuthState(null);
-                setIsLoaded(true);
-            }
-        }
-        authCheck();
+        authCheck({ setAuthState, setIsLoaded });
     }, []);
     return (
-        <AuthProvider value={{ user: authState, setUser: user => setAuthState(user) }}>
+        <AuthProvider value={{ user: authState, setAuthState }}>
             {!isLoaded && <IonSpinner />}
             {isLoaded  && <Layout />}
         </AuthProvider>

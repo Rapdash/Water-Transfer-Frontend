@@ -1,17 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Axios from "axios";
 import { IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonInput, IonList, IonItem, IonLabel } from "@ionic/react";
 
+import { authCheck } from "../../data/authCheck";
+import { listings } from "../../constants/routes";
+import AuthContext from "../../data/AuthContext";
+
 export const LoginPage = ({ history }) => {
+    const auth = useContext(AuthContext);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const attemptLogin = async () => {
         try {
             const result = await Axios.post("http://localhost:9001/auth", { email, password });
-            console.log(result.data);
             if (result.status === 200) {
                 localStorage.setItem("token", result.data.token);
+                authCheck({ setAuthState: auth.setAuthState });
+                history.push(listings);
             } else if (result.status === 403) {
                 setError(result.data.message);
             } else {
