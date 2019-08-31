@@ -2,7 +2,10 @@
 // Renders the Header & Menu + a page determined by the App's History
 
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Switch } from "react-router-dom";
+
+import { PrivateRoute } from "./PrivateRoute";
+import { NonAuthedRoute } from "./NonAuthedRoute";
 
 import { LoginPage } from "../../../Pages";
 import { LogoutPage } from "../../../Pages";
@@ -14,9 +17,9 @@ export const Routes = () => (
     <>
         <Switch>
             {/* Authed */}
-            <Route path={logout} component={LogoutPage} />
+            <PrivateRoute path={logout} component={LogoutPage} />
             {/* Non-Authed */}
-            <Route path={login} exact component={LoginPage} />
+            <NonAuthedRoute path={login} exact component={LoginPage} />
         </Switch>
     </>
 )
