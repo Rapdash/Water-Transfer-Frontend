@@ -4,10 +4,10 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import { LoginPage } from "../../Pages";
-import { LogoutPage } from "../../Pages";
+import { LoginPage } from "../../../Pages";
+import { LogoutPage } from "../../../Pages";
 
-import { login } from "../../constants/routes";
+import { login } from "../../../constants/routes";
 
 
 export const Router = () => (
