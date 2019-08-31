@@ -1,7 +1,7 @@
 import React from "react";
 import { IonMenu, IonTitle, IonItem, IonList, IonContent } from "@ionic/react";
 
-import { MenuListItems } from "./MenuListItems";
+import { MenuList } from "./MenuList";
 
 export const SideMenu = () => {
     return (
@@ -11,7 +11,7 @@ export const SideMenu = () => {
                 <IonItem color="medium">
                     <IonTitle className="ion-text-center">Menu</IonTitle>
                 </IonItem>
-                {MenuListItems()}
+                <MenuList />
             </IonList>
         </IonContent>
     </IonMenu>

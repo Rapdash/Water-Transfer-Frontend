@@ -30,7 +30,7 @@ export const App = () => {
         authCheck();
     }, []);
     return (
-        <AuthProvider value={{ user: authState, setUser: setAuthState }}>
+        <AuthProvider value={{ user: authState, setUser: user => setAuthState(user) }}>
             {!isLoaded && <IonSpinner />}
             {isLoaded  && <Layout />}
         </AuthProvider>

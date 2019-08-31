@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
 
-export const LoginPage = () => {
+export const LoginPage = ({ history }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
