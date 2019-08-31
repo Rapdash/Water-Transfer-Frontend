@@ -1,2 +1,2 @@
 export { LoginPage } from "./Login";
-export { LogoutPage } from "./Logout";
+export { LogoutPage } from "../components/Logout";
