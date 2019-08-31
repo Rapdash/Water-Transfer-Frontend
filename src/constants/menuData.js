@@ -16,7 +16,7 @@ export const menuRoutes = {
         { title: 'My Offers', path: myOffers, icon: contacts },
         { title: 'Create New Listing', path: createListing, icon: add },
         { title: 'Account Management', path: account, icon: person },
-        { title: 'Sign Out', path: logout, icon: arrowRoundBack },
+        { title: 'Log Out', path: logout, icon: arrowRoundBack },
         { title: 'App Support', path: support, icon: medkit }
     ]
 };

@@ -5,7 +5,7 @@ export const LoginPage = ({ history }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
-    const fetchData = async () => {
+    const attemptLogin = async () => {
         const result = await Axios.post("http://localhost:9001/auth", { email, password });
         console.log(result.data);
         if (result.status === 200) {
@@ -15,7 +15,7 @@ export const LoginPage = ({ history }) => {
         } else {
             setError("Unknown Error. Contact Admin");
         }
-    }   
+    }
 
     return <div>LOL</div>
 }

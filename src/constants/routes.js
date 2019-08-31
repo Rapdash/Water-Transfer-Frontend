@@ -3,7 +3,7 @@
 
     // Non-Authed
 export const login = "/";
-export const accessRequest = "/access-request";
+export const accessRequest = "/request-access";
     // Auhthed
 export const listings = "/listings";
 export const myListings = "/my-listings";
