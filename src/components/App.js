@@ -30,7 +30,6 @@ export const App = () => {
                     </IonSplitPane>
                 </IonContent>
             </IonApp>
-            <Router />
         </AuthProvider>
     )
 }
