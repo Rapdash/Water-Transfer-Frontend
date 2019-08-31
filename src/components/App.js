@@ -16,7 +16,6 @@ export const App = () => {
             if (localStorage.getItem("token")) {
                 try {
                     const response = await Axios.get("http://localhost:9001/user/account", { headers: { Authorization: localStorage.getItem("token")}});
-                    console.log(response);
                     setAuthState(response.data);
                     setIsLoaded(true);
                 } catch {
