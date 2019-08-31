@@ -1,10 +1,10 @@
 // Router for the App
-// Renders the Header & Menu + a page determined by the app's history object
+// Renders the Header & Menu + a page determined by the App's History
 
 import React from "react";
 
-import { IonApp, IonSplitPane, IonContent, IonRouterOutlet } from "@ionic/react";
-import { Route, Switch } from "react-router-dom";
+import { IonApp, IonSplitPane, IonContent } from "@ionic/react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import { SideMenu } from "./SideMenu";
 import { Header } from "./Header";
@@ -15,7 +15,7 @@ import { login } from "../../constants/routes";
 
 
 export const Router = () => (
-    <IonRouterOutlet>
+    <BrowserRouter>
         <IonApp>
             <Header />
             <IonContent>
@@ -32,5 +32,5 @@ export const Router = () => (
                 </IonSplitPane>
             </IonContent>
         </IonApp>
-    </IonRouterOutlet>
+    </BrowserRouter>
 )
