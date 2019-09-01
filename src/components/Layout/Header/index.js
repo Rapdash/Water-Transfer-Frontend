@@ -13,7 +13,6 @@ export const Header = () => (
                 </IonMenuToggle>
             </IonButtons>
             <IonTitle className="ion-text-center">
-                <span className="ion-hide-sm-down">The Water Agency Inc. </span>
                 Water Transfer Platform
             </IonTitle>
             {/* This Button Just for Specing */}
