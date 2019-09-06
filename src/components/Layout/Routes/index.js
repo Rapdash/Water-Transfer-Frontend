@@ -17,7 +17,7 @@ export const Routes = () => (
         <Switch>
             {/* Authed */}
             <PrivateRoute path={logout} component={LogoutPage} />
-            <PrivateRoute path={makeOffer} />
+            <PrivateRoute path={makeOffer} component={ListingsPage} />
             <PrivateRoute path={listings} component={ListingsPage} />
             {/* Non-Authed */}
             <NonAuthedRoute path={login} exact component={LoginPage} />
