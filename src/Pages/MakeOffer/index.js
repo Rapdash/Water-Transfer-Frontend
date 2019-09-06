@@ -27,7 +27,13 @@ export const MakeOfferPage = () => {
           offsetLg={3}
           sizeXl={4}
           offsetXl={4}
-        ></IonCol>
+        >
+          <IonCard>
+            <IonCardHeader>
+              <IonCardTitle>Make offer</IonCardTitle>
+            </IonCardHeader>
+          </IonCard>
+        </IonCol>
       </IonRow>
     </IonGrid>
   );
