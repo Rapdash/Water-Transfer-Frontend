@@ -3,7 +3,7 @@ import { IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonTitle, IonCardConte
 import { Link } from "react-router-dom";
 import Axios from "axios";
 
-import { listings as listingsRoute } from "../../constants/routes";
+import { makeOffer } from "../../constants/routes";
 
 export const ListingsPage = () => {
     const [listings, setListings] = useState([{ _id: "5d6d6bb341787954f642a300", price: 300, volume: 1000 }]);
@@ -32,7 +32,7 @@ export const ListingsPage = () => {
                         {offerPending && <IonText style={{ display: "block" }} color="primary">Offer Pending</IonText>}
                         {!twaiConfirmed && <IonText style={{ display: "block" }}>Availability Not Verifed</IonText>}
                         {twaiConfirmed && <IonText style={{ display: "block" }} color="success">Availability Verified</IonText>}
-                        <Link to={listingsRoute + '/' + _id}>
+                        <Link to={makeOffer + '/' + _id}>
                             <IonButton class="ion-margin-top" expand="full">Details / Make An Offer</IonButton>
                         </Link>
                     </IonCardContent>

@@ -6,7 +6,7 @@ export const login = "/";
 export const accessRequest = "/request-access";
     // Auhthed
 export const listings = "/listings";
-export const singleListing = "/listings/:id"
+export const makeOffer = "/listings/:id"
 export const myListings = "/my-listings";
 export const myOffers = "/my-offers";
 export const createListing = "/create-listing";

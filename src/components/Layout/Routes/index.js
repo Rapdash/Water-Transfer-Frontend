@@ -9,7 +9,7 @@ import { NonAuthedRoute } from "./NonAuthedRoute";
 
 import { LoginPage, LogoutPage, ListingsPage } from "../../../Pages";
 
-import { logout, login, listings } from "../../../constants/routes";
+import { logout, login, listings, makeOffer } from "../../../constants/routes";
 
 
 export const Routes = () => (
@@ -17,6 +17,7 @@ export const Routes = () => (
         <Switch>
             {/* Authed */}
             <PrivateRoute path={logout} component={LogoutPage} />
+            <PrivateRoute path={makeOffer} />
             <PrivateRoute path={listings} component={ListingsPage} />
             {/* Non-Authed */}
             <NonAuthedRoute path={login} exact component={LoginPage} />
