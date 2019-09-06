@@ -45,7 +45,7 @@ export const ListingsPage = () => {
         <IonGrid>
            <IonRow>
                {listingCards()}
-            </IonRow> 
+            </IonRow>
         </IonGrid>
     )
 }
