@@ -25,8 +25,8 @@ export const MakeOfferPage = () => {
           offsetMd={2}
           sizeLg={6}
           offsetLg={3}
-          sizeXl={4}
-          offsetXl={4}
+          sizeXl={6}
+          offsetXl={3}
         >
           <IonCard>
             <IonCardHeader>
