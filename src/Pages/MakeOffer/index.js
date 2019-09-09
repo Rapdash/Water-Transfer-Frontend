@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Axios from 'axios';
 import {
   IonGrid,
   IonCard,
@@ -11,11 +12,31 @@ import {
   IonCol,
   IonItem,
   IonLabel,
-  IonText
+  IonText,
+  IonSpinner
 } from '@ionic/react';
 
-export const MakeOfferPage = () => {
+export const MakeOfferPage = ({ match }) => {
+  const [loading, setLoading] = useState(true);
+  const [listing, setListing] = useState(null);
   const [counterOfferShown, setCounterOfferShown] = useState(false);
+  const listingId = match.params.id;
+  useEffect(() => {
+    const getListings = async () => {
+      const response = await Axios.get(
+        `http://localhost:9001/listing/${listingId}`,
+        {
+          headers: {
+            Authorization: localStorage.getItem('token')
+          }
+        }
+      );
+      setListing(response.data);
+      setLoading(false);
+    };
+    getListings();
+  }, [listingId]);
+  if (loading) return <IonSpinner />;
   return (
     <IonGrid>
       <IonRow>
@@ -42,7 +63,7 @@ export const MakeOfferPage = () => {
                   <IonText>Water Type: Other</IonText>
                 </IonItem>
                 <IonItem>
-                  <IonText>Listed Price: ${500}/AF</IonText>
+                  <IonText>Listed Price: ${listing.price}/AF</IonText>
                 </IonItem>
                 {!counterOfferShown && (
                   <IonItem
