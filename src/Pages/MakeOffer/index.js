@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   IonGrid,
   IonCard,
   IonCardHeader,
   IonCardContent,
   IonCardTitle,
-  IonCardSubtitle,
-  IonItemDivider,
   IonList,
   IonInput,
   IonRow,
-  IonCol
+  IonCol,
+  IonItem,
+  IonLabel,
+  IonText
 } from '@ionic/react';
 
 export const MakeOfferPage = () => {
+  const [counterOfferShown, setCounterOfferShown] = useState(false);
   return (
     <IonGrid>
       <IonRow>
@@ -29,9 +31,39 @@ export const MakeOfferPage = () => {
           offsetXl={3}
         >
           <IonCard>
-            <IonCardHeader>
-              <IonCardTitle>Make offer</IonCardTitle>
+            <IonCardHeader color="primary">
+              <IonCardTitle className="ion-text-center">
+                Make offer
+              </IonCardTitle>
             </IonCardHeader>
+            <IonCardContent>
+              <IonList>
+                <IonItem>
+                  <IonText>Water Type: Other</IonText>
+                </IonItem>
+                <IonItem>
+                  <IonText>Listed Price: ${500}/AF</IonText>
+                </IonItem>
+                {!counterOfferShown && (
+                  <IonItem
+                    button
+                    color="medium"
+                    onClick={() => {
+                      setCounterOfferShown(true);
+                    }}
+                  >
+                    <IonText>Click To Counteroffer</IonText>
+                  </IonItem>
+                )}
+                {counterOfferShown && (
+                  <IonItem>
+                    <IonInput type="number">
+                      <IonLabel>Counter Price ($/AF)</IonLabel>
+                    </IonInput>
+                  </IonItem>
+                )}
+              </IonList>
+            </IonCardContent>
           </IonCard>
         </IonCol>
       </IonRow>
