@@ -54,7 +54,7 @@ export const MakeOfferPage = ({ match }) => {
           <IonCard>
             <IonCardHeader color="primary">
               <IonCardTitle className="ion-text-center">
-                Make offer
+                Make Offer
               </IonCardTitle>
             </IonCardHeader>
             <IonCardContent>
