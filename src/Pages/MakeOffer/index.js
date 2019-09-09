@@ -30,6 +30,7 @@ export const MakeOfferPage = ({ match }) => {
           }
         }
       );
+      console.log(response.data);
       setListing(response.data);
       setLoading(false);
     };
@@ -64,6 +65,9 @@ export const MakeOfferPage = ({ match }) => {
                 <IonItem className="item-interactive">
                   <IonLabel>Listed Price: ${listing.price}/AF</IonLabel>
                 </IonItem>
+                <IonItem className="item-interactive">
+                  <IonLabel>Available Volume: {listing.volume} AF</IonLabel>
+                </IonItem>
                 {!counterOfferShown && (
                   <IonItem
                     button
@@ -73,7 +77,7 @@ export const MakeOfferPage = ({ match }) => {
                     }}
                   >
                     <IonLabel position="inline">
-                      Click to counter-offer
+                      Click here to counter-offer
                     </IonLabel>
                   </IonItem>
                 )}
