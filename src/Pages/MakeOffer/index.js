@@ -12,7 +12,6 @@ import {
   IonCol,
   IonItem,
   IonLabel,
-  IonText,
   IonSpinner
 } from '@ionic/react';
 
