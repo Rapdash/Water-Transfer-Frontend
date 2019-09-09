@@ -7,7 +7,6 @@ import {
   IonCardContent,
   IonCardTitle,
   IonList,
-  IonInput,
   IonRow,
   IonCol,
   IonItem,
@@ -19,6 +18,7 @@ export const MakeOfferPage = ({ match }) => {
   const [loading, setLoading] = useState(true);
   const [listing, setListing] = useState(null);
   const [counterOfferShown, setCounterOfferShown] = useState(false);
+  const [counterPrice, setCounterPrice] = useState(null);
   const listingId = match.params.id;
   useEffect(() => {
     const getListings = async () => {
@@ -33,6 +33,7 @@ export const MakeOfferPage = ({ match }) => {
       console.log(response.data);
       setListing(response.data);
       setLoading(false);
+      setCounterPrice(response.data.price);
     };
     getListings();
   }, [listingId]);
@@ -63,10 +64,17 @@ export const MakeOfferPage = ({ match }) => {
                   <IonLabel>Water Type: {listing.waterType}</IonLabel>
                 </IonItem>
                 <IonItem className="item-interactive">
-                  <IonLabel>Listed Price: ${listing.price}/AF</IonLabel>
-                </IonItem>
-                <IonItem className="item-interactive">
                   <IonLabel>Available Volume: {listing.volume} AF</IonLabel>
+                </IonItem>
+                {listing.partialPurchaseOk && (
+                  <IonItem className="item-interactive">
+                    <IonLabel>
+                      Minumum Purchase: {listing.minimumVolume} AF
+                    </IonLabel>
+                  </IonItem>
+                )}
+                <IonItem className="item-interactive">
+                  <IonLabel>Listed Price: ${listing.price}/AF</IonLabel>
                 </IonItem>
                 {!counterOfferShown && (
                   <IonItem
@@ -84,12 +92,9 @@ export const MakeOfferPage = ({ match }) => {
                 {counterOfferShown && (
                   <>
                     <ion-item>
-                      <ion-label></ion-label>
-                      <ion-input></ion-input>
+                      <ion-label>Counter Price:</ion-label>
+                      <ion-input value={counterPrice} />
                     </ion-item>
-                    <IonItem>
-                      <IonInput type="number" />
-                    </IonItem>
                   </>
                 )}
               </IonList>
