@@ -59,10 +59,10 @@ export const MakeOfferPage = ({ match }) => {
             </IonCardHeader>
             <IonCardContent>
               <IonList>
-                <IonItem>
+                <IonItem className="item-interactive">
                   <IonLabel>Water Type: {listing.waterType}</IonLabel>
                 </IonItem>
-                <IonItem>
+                <IonItem className="item-interactive">
                   <IonLabel>Listed Price: ${listing.price}/AF</IonLabel>
                 </IonItem>
                 {!counterOfferShown && (
@@ -81,7 +81,7 @@ export const MakeOfferPage = ({ match }) => {
                 {counterOfferShown && (
                   <>
                     <ion-item>
-                      <ion-label position="inline"></ion-label>
+                      <ion-label></ion-label>
                       <ion-input></ion-input>
                     </ion-item>
                     <IonItem>
