@@ -19,7 +19,9 @@ export const MakeOfferPage = ({ match }) => {
   const [listing, setListing] = useState(null);
   const [counterOfferShown, setCounterOfferShown] = useState(false);
   const [counterPrice, setCounterPrice] = useState(null);
+
   const listingId = match.params.id;
+
   useEffect(() => {
     const getListings = async () => {
       const response = await Axios.get(
@@ -37,6 +39,7 @@ export const MakeOfferPage = ({ match }) => {
     };
     getListings();
   }, [listingId]);
+
   if (loading) return <IonSpinner />;
   return (
     <IonGrid>
