@@ -37,7 +37,6 @@ export const MakeOfferPage = ({ match }) => {
           }
         }
       );
-      console.log(response.data);
       setListing(response.data);
       setLoading(false);
     };
