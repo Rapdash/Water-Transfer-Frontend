@@ -35,7 +35,6 @@ export const MakeOfferPage = ({ match }) => {
       console.log(response.data);
       setListing(response.data);
       setLoading(false);
-      setCounterPrice(response.data.price);
     };
     getListings();
   }, [listingId]);
@@ -98,8 +97,10 @@ export const MakeOfferPage = ({ match }) => {
                       Set Counter Price (in $/AF):
                     </ion-label>
                     <ion-input
-                      value={null}
-                      onChange={e => setCounterPrice(e)}
+                      type="number"
+                      inputMode="numeric"
+                      value={counterPrice}
+                      onInput={e => setCounterPrice(e.target.value)}
                     />
                   </ion-item>
                 )}
