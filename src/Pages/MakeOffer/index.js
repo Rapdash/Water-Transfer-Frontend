@@ -43,9 +43,7 @@ export const MakeOfferPage = ({ match }) => {
     getListings();
   }, [listingId]);
 
-  const handleSubmit = e => {
-    console.log(e);
-  };
+  const handleSubmit = () => {};
 
   if (loading) return <IonSpinner />;
   return (
@@ -144,7 +142,7 @@ export const MakeOfferPage = ({ match }) => {
                   button
                   type="submit"
                   color="primary"
-                  onClick={e => handleSubmit(e)}
+                  onClick={() => handleSubmit()}
                 >
                   <IonLabel position="inline" className="ion-text-center">
                     Submit Your Offer
