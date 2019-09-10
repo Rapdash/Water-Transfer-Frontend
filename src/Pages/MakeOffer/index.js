@@ -91,7 +91,7 @@ export const MakeOfferPage = ({ match }) => {
                       setCounterOfferShown(true);
                     }}
                   >
-                    <IonLabel position="inline">
+                    <IonLabel position="inline" className="ion-text-center">
                       Click here to counter-offer
                     </IonLabel>
                   </IonItem>
@@ -102,7 +102,6 @@ export const MakeOfferPage = ({ match }) => {
                       Set Counter Price (in $/AF):
                     </IonLabel>
                     <IonInput
-                      color="primary"
                       type="number"
                       inputMode="numeric"
                       value={counterPrice}
@@ -112,14 +111,13 @@ export const MakeOfferPage = ({ match }) => {
                 )}
                 {!partialPurchaseShown && (
                   <IonItem
-                    className="ion-margin-top"
                     button
                     color="dark"
                     onClick={() => {
                       setPartialPurchaseShown(true);
                     }}
                   >
-                    <IonLabel position="inline">
+                    <IonLabel position="inline" className="ion-text-center">
                       Click here for a partial purchase.
                     </IonLabel>
                   </IonItem>
@@ -130,7 +128,6 @@ export const MakeOfferPage = ({ match }) => {
                       Volume You'd Like to Purchase (AF)
                     </IonLabel>
                     <IonInput
-                      color="primary"
                       type="number"
                       inputMode="numeric"
                       value={partialVolume}
@@ -138,6 +135,16 @@ export const MakeOfferPage = ({ match }) => {
                     />
                   </IonItem>
                 )}
+                <IonItem
+                  className="ion-margin-top"
+                  button
+                  color="primary"
+                  onClick={() => {}}
+                >
+                  <IonLabel position="inline" className="ion-text-center">
+                    Submit Your Offer
+                  </IonLabel>
+                </IonItem>
               </IonList>
             </IonCardContent>
           </IonCard>
