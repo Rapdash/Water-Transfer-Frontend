@@ -24,6 +24,9 @@ export const MakeOfferPage = ({ match }) => {
 
   const [partialPurchaseShown, setPartialPurchaseShown] = useState(false);
   const [partialVolume, setPartialVolume] = useState(null);
+  const [volumeError, setVolumeError] = useState(null);
+
+  const [requestBody, setRequestBody] = useState({});
 
   const listingId = match.params.id;
 
@@ -38,12 +41,33 @@ export const MakeOfferPage = ({ match }) => {
         }
       );
       setListing(response.data);
+      console.log(response.data);
       setLoading(false);
     };
     getListings();
   }, [listingId]);
 
-  const handleSubmit = () => {};
+  const validateAndChangeVolume = e => {
+    const volumeInputValue = e.target.value;
+    setPartialVolume(volumeInputValue);
+    setVolumeError(
+      volumeInputValue < listing.minimumVolume
+        ? setVolumeError('Volume must be higher than the minimum.')
+        : null
+    );
+    setVolumeError(
+      volumeInputValue > 100000
+        ? setVolumeError('That Volume Input looks too high.')
+        : null
+    );
+  };
+
+  const handleSubmit = () => {
+    // const listingId = listing._id;
+    const intCounterPrice = parseInt(counterPrice) || listing.price;
+    const intPartialVolume = parseInt(partialVolume) || listing.volume;
+    const volumeIsValid = intPartialVolume > 0;
+  };
 
   if (loading) return <IonSpinner />;
   return (
@@ -133,7 +157,7 @@ export const MakeOfferPage = ({ match }) => {
                       type="number"
                       inputMode="numeric"
                       value={partialVolume}
-                      onInput={e => setPartialVolume(e.target.volume)}
+                      onInput={e => validateAndChangeVolume(e)}
                     />
                   </IonItem>
                 )}
