@@ -84,6 +84,7 @@ export const MakeOfferPage = ({ match }) => {
                 </IonItem>
                 {!counterOfferShown && (
                   <IonItem
+                    className="ion-margin-top"
                     button
                     color="medium"
                     onClick={() => {
@@ -97,10 +98,11 @@ export const MakeOfferPage = ({ match }) => {
                 )}
                 {counterOfferShown && (
                   <IonItem>
-                    <IonLabel position="floating">
+                    <IonLabel color="primary" position="floating">
                       Set Counter Price (in $/AF):
                     </IonLabel>
                     <IonInput
+                      color="primary"
                       type="number"
                       inputMode="numeric"
                       value={counterPrice}
@@ -110,6 +112,7 @@ export const MakeOfferPage = ({ match }) => {
                 )}
                 {!partialPurchaseShown && (
                   <IonItem
+                    className="ion-margin-top"
                     button
                     color="dark"
                     onClick={() => {
@@ -123,10 +126,11 @@ export const MakeOfferPage = ({ match }) => {
                 )}
                 {partialPurchaseShown && (
                   <IonItem>
-                    <IonLabel position="floating">
+                    <IonLabel color="primary" position="floating">
                       Volume You'd Like to Purchase (AF)
                     </IonLabel>
                     <IonInput
+                      color="primary"
                       type="number"
                       inputMode="numeric"
                       value={partialVolume}
