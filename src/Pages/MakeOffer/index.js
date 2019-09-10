@@ -11,7 +11,8 @@ import {
   IonCol,
   IonItem,
   IonLabel,
-  IonSpinner
+  IonSpinner,
+  IonInput
 } from '@ionic/react';
 
 export const MakeOfferPage = ({ match }) => {
@@ -32,6 +33,7 @@ export const MakeOfferPage = ({ match }) => {
           }
         }
       );
+      console.log(response.data);
       setListing(response.data);
       setLoading(false);
     };
@@ -91,17 +93,17 @@ export const MakeOfferPage = ({ match }) => {
                   </IonItem>
                 )}
                 {counterOfferShown && (
-                  <ion-item>
-                    <ion-label position="floating">
+                  <IonItem>
+                    <IonLabel position="floating">
                       Set Counter Price (in $/AF):
-                    </ion-label>
-                    <ion-input
+                    </IonLabel>
+                    <IonInput
                       type="number"
                       inputMode="numeric"
                       value={counterPrice}
                       onInput={e => setCounterPrice(e.target.value)}
                     />
-                  </ion-item>
+                  </IonItem>
                 )}
               </IonList>
             </IonCardContent>
