@@ -93,12 +93,15 @@ export const MakeOfferPage = ({ match }) => {
                   </IonItem>
                 )}
                 {counterOfferShown && (
-                  <>
-                    <ion-item>
-                      <ion-label>Counter Price:</ion-label>
-                      <ion-input value={counterPrice} />
-                    </ion-item>
-                  </>
+                  <ion-item>
+                    <ion-label position="floating">
+                      Set Counter Price (in $/AF):
+                    </ion-label>
+                    <ion-input
+                      value={null}
+                      onChange={e => setCounterPrice(e)}
+                    />
+                  </ion-item>
                 )}
               </IonList>
             </IonCardContent>
