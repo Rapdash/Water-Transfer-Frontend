@@ -18,8 +18,12 @@ import {
 export const MakeOfferPage = ({ match }) => {
   const [loading, setLoading] = useState(true);
   const [listing, setListing] = useState(null);
+
   const [counterOfferShown, setCounterOfferShown] = useState(false);
   const [counterPrice, setCounterPrice] = useState(null);
+
+  const [partialPurchaseShown, setPartialPurchaseShown] = useState(false);
+  const [partialVolume, setPartialVolume] = useState(null);
 
   const listingId = match.params.id;
 
@@ -102,6 +106,32 @@ export const MakeOfferPage = ({ match }) => {
                       inputMode="numeric"
                       value={counterPrice}
                       onInput={e => setCounterPrice(e.target.value)}
+                    />
+                  </IonItem>
+                )}
+                {!partialPurchaseShown && (
+                  <IonItem
+                    button
+                    color="dark"
+                    onClick={() => {
+                      setPartialPurchaseShown(true);
+                    }}
+                  >
+                    <IonLabel position="inline">
+                      Click here for a partial purchase.
+                    </IonLabel>
+                  </IonItem>
+                )}
+                {partialPurchaseShown && (
+                  <IonItem>
+                    <IonLabel position="floating">
+                      Volume You'd Like to Purchase (AF)
+                    </IonLabel>
+                    <IonInput
+                      type="number"
+                      inputMode="numeric"
+                      value={partialVolume}
+                      onInput={e => setPartialVolume(e.target.volume)}
                     />
                   </IonItem>
                 )}
