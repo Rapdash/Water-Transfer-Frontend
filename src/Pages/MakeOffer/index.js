@@ -81,7 +81,6 @@ export const MakeOfferPage = ({ match }) => {
       setVolumeError(`Volume must be below ${listing.volume} AF`);
     }
 
-    console.log(priceError);
     const formIsValid =
       !priceTooLow && !priceTooHigh && !volumeTooLow && !volumeTooHigh;
     if (formIsValid) {
@@ -203,7 +202,11 @@ export const MakeOfferPage = ({ match }) => {
                 {priceError && (
                   <IonItem
                     color="danger"
-                    className="item-interactive ion-text-center"
+                    className={
+                      volumeError
+                        ? 'item-interactive ion-text-center ion-margin-bottom'
+                        : 'item-interactive ion-text-center'
+                    }
                   >
                     <IonLabel>{priceError}</IonLabel>
                   </IonItem>
