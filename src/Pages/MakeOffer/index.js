@@ -87,7 +87,7 @@ export const MakeOfferPage = ({ match }) => {
       Axios.post('http://localhost:9001/offer/create', {
         offerPrice: intCounterPrice,
         offerVolume: intPartialVolume,
-        parentListingId: listing._id
+        parentListingId: listingId
       });
     }
   };
