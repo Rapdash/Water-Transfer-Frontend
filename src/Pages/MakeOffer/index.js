@@ -27,8 +27,6 @@ export const MakeOfferPage = ({ match }) => {
   const [partialVolume, setPartialVolume] = useState(null);
   const [volumeError, setVolumeError] = useState(null);
 
-  const [requestBody, setRequestBody] = useState({});
-
   const listingId = match.params.id;
 
   useEffect(() => {
@@ -63,14 +61,36 @@ export const MakeOfferPage = ({ match }) => {
   // };
 
   const handleSubmit = () => {
-    // const listingId = listing._id;
+    const listingId = listing._id;
     const intCounterPrice = parseInt(counterPrice) || listing.price;
-    const priceIsValid = intCounterPrice > 0 && intCounterPrice < 1000;
-    setPriceError(priceIsValid ? null : 'Price Must Be Between 0 & 1,000');
+    const priceTooLow = intCounterPrice < 0;
+    if (priceTooLow) {
+      setPriceError('Price Must Be Above 0');
+    }
+    const priceTooHigh = intCounterPrice > listing.price;
+    if (priceTooHigh) {
+      setPriceError(`Price Must Be Below $${listing.price}/AF`);
+    }
     const intPartialVolume = parseInt(partialVolume) || listing.volume;
-    const volumeIsValid = intPartialVolume > 0 && intPartialVolume < 100000;
-    console.log(volumeIsValid, intPartialVolume);
-    setVolumeError(volumeIsValid ? null : 'Volume Must Be Between 0 & 100,000');
+    const volumeTooLow = intPartialVolume <= listing.minimumVolume;
+    if (volumeTooLow) {
+      setVolumeError(`Volume Must Be Above ${listing.minimumVolume} AF`);
+    }
+    const volumeTooHigh = intPartialVolume > listing.volume;
+    if (volumeTooHigh) {
+      setVolumeError(`Volume must be below ${listing.volume} AF`);
+    }
+
+    console.log(priceError);
+    const formIsValid =
+      !priceTooLow && !priceTooHigh && !volumeTooLow && !volumeTooHigh;
+    if (formIsValid) {
+      Axios.post('http://localhost:9001/offer/create', {
+        offerPrice: intCounterPrice,
+        offerVolume: intPartialVolume,
+        parentListingId: listing._id
+      });
+    }
   };
 
   if (loading) return <IonSpinner />;
@@ -166,7 +186,11 @@ export const MakeOfferPage = ({ match }) => {
                   </IonItem>
                 )}
                 <IonItem
-                  className="ion-margin-top"
+                  className={
+                    priceError || volumeError
+                      ? 'ion-margin-bottom ion-margin-top'
+                      : 'ion-margin-top'
+                  }
                   button
                   type="submit"
                   color="primary"
@@ -177,12 +201,18 @@ export const MakeOfferPage = ({ match }) => {
                   </IonLabel>
                 </IonItem>
                 {priceError && (
-                  <IonItem color="danger" className="item-interactive">
+                  <IonItem
+                    color="danger"
+                    className="item-interactive ion-text-center"
+                  >
                     <IonLabel>{priceError}</IonLabel>
                   </IonItem>
                 )}
                 {volumeError && (
-                  <IonItem color="danger" className="item-interactive">
+                  <IonItem
+                    color="danger"
+                    className="item-interactive ion-text-center"
+                  >
                     <IonLabel>{volumeError}</IonLabel>
                   </IonItem>
                 )}
