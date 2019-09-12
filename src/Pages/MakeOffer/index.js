@@ -21,6 +21,7 @@ export const MakeOfferPage = ({ match }) => {
 
   const [counterOfferShown, setCounterOfferShown] = useState(false);
   const [counterPrice, setCounterPrice] = useState(null);
+  const [priceError, setPriceError] = useState(null);
 
   const [partialPurchaseShown, setPartialPurchaseShown] = useState(false);
   const [partialVolume, setPartialVolume] = useState(null);
@@ -41,32 +42,35 @@ export const MakeOfferPage = ({ match }) => {
         }
       );
       setListing(response.data);
-      console.log(response.data);
       setLoading(false);
     };
     getListings();
   }, [listingId]);
 
-  const validateAndChangeVolume = e => {
-    const volumeInputValue = e.target.value;
-    setPartialVolume(volumeInputValue);
-    setVolumeError(
-      volumeInputValue < listing.minimumVolume
-        ? setVolumeError('Volume must be higher than the minimum.')
-        : null
-    );
-    setVolumeError(
-      volumeInputValue > 100000
-        ? setVolumeError('That Volume Input looks too high.')
-        : null
-    );
-  };
+  // const validateAndChangeVolume = e => {
+  //   const volumeInputValue = e.target.value;
+  //   setPartialVolume(volumeInputValue);
+  //   setVolumeError(
+  //     volumeInputValue < listing.minimumVolume
+  //       ? setVolumeError('Volume must be higher than the minimum.')
+  //       : null
+  //   );
+  //   setVolumeError(
+  //     volumeInputValue > 100000
+  //       ? setVolumeError('That Volume Input looks too high.')
+  //       : null
+  //   );
+  // };
 
   const handleSubmit = () => {
     // const listingId = listing._id;
     const intCounterPrice = parseInt(counterPrice) || listing.price;
+    const priceIsValid = intCounterPrice > 0 && intCounterPrice < 1000;
+    setPriceError(priceIsValid ? null : 'Price Must Be Between 0 & 1,000');
     const intPartialVolume = parseInt(partialVolume) || listing.volume;
-    const volumeIsValid = intPartialVolume > 0;
+    const volumeIsValid = intPartialVolume > 0 && intPartialVolume < 100000;
+    console.log(volumeIsValid, intPartialVolume);
+    setVolumeError(volumeIsValid ? null : 'Volume Must Be Between 0 & 100,000');
   };
 
   if (loading) return <IonSpinner />;
@@ -157,7 +161,7 @@ export const MakeOfferPage = ({ match }) => {
                       type="number"
                       inputMode="numeric"
                       value={partialVolume}
-                      onInput={e => validateAndChangeVolume(e)}
+                      onInput={e => setPartialVolume(e.target.value)}
                     />
                   </IonItem>
                 )}
@@ -172,6 +176,16 @@ export const MakeOfferPage = ({ match }) => {
                     Submit Your Offer
                   </IonLabel>
                 </IonItem>
+                {priceError && (
+                  <IonItem color="danger" className="item-interactive">
+                    <IonLabel>{priceError}</IonLabel>
+                  </IonItem>
+                )}
+                {volumeError && (
+                  <IonItem color="danger" className="item-interactive">
+                    <IonLabel>{volumeError}</IonLabel>
+                  </IonItem>
+                )}
               </IonList>
             </IonCardContent>
           </IonCard>
