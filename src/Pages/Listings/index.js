@@ -33,10 +33,9 @@ export const ListingsPage = () => {
   return (
     <IonGrid>
       <IonRow>
-        {listings.map(listing => {
-          console.log(listing);
-          return <ListingCard listing={listing} key={listing._id} />;
-        })}
+        {listings.map(listing => (
+          <ListingCard listing={listing} key={listing._id} />
+        ))}
       </IonRow>
     </IonGrid>
   );
