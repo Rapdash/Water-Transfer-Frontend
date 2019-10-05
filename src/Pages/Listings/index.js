@@ -17,9 +17,7 @@ import Axios from 'axios';
 import { listings as listingsRoute } from '../../constants/routes';
 
 export const ListingsPage = () => {
-  const [listings, setListings] = useState([
-    { _id: '5d6d6bb341787954f642a300', price: 300, volume: 1000 }
-  ]);
+  const [listings, setListings] = useState([]);
   useEffect(() => {
     const getListings = async () => {
       const response = await Axios.get('http://localhost:9001/listing', {

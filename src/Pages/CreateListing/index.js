@@ -14,3 +14,5 @@ import {
   IonSpinner,
   IonInput
 } from '@ionic/react';
+
+export const CreateListingPage = () => {};
