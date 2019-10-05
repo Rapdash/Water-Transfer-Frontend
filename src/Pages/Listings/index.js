@@ -1,20 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import {
-  IonGrid,
-  IonRow,
-  IonCol,
-  IonCard,
-  IonCardHeader,
-  IonTitle,
-  IonCardContent,
-  IonText,
-  IonItemDivider,
-  IonButton
-} from '@ionic/react';
-import { Link } from 'react-router-dom';
+import { IonGrid, IonRow } from '@ionic/react';
 import Axios from 'axios';
 
-import { listings as listingsRoute } from '../../constants/routes';
 import { ListingCard } from './ListingCard';
 
 export const ListingsPage = () => {
