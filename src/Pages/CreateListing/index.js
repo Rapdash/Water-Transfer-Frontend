@@ -11,7 +11,9 @@ import {
   IonCol,
   IonItem,
   IonLabel,
-  IonInput
+  IonInput,
+  IonSelect,
+  IonSelectOption
 } from '@ionic/react';
 
 export const CreateListingPage = () => {
@@ -57,6 +59,17 @@ export const CreateListingPage = () => {
                     type="number"
                     inputMode="numeric"
                   />
+                </IonItem>
+                <IonItem>
+                  <IonLabel>Water Type</IonLabel>
+                  <IonSelect interface="action-sheet">
+                    <IonSelectOption value="Current Year Project Water">
+                      Current Year Project Water
+                    </IonSelectOption>
+                    <IonSelectOption value="Other Type">
+                      Other Type
+                    </IonSelectOption>
+                  </IonSelect>
                 </IonItem>
               </IonList>
             </IonCardContent>
