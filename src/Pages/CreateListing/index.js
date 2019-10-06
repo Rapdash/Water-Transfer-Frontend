@@ -65,7 +65,7 @@ export const CreateListingPage = () => {
                   />
                 </IonItem>
                 <IonItem>
-                  <IonLabel>Water Type</IonLabel>
+                  <IonLabel position="floating">Water Type</IonLabel>
                   <IonSelect
                     interface="action-sheet"
                     value={waterType}
@@ -82,15 +82,19 @@ export const CreateListingPage = () => {
                 {!partialPurchase && (
                   <IonItem
                     type="button"
-                    color="light"
+                    color="medium"
                     onClick={() => setPartialPurchase(true)}
                   >
-                    <IonLabel>Allow Partial Purchase?</IonLabel>
+                    <IonLabel className="ion-text-center">
+                      Click To Allow Partial Purchase
+                    </IonLabel>
                   </IonItem>
                 )}
                 {partialPurchase && (
                   <IonItem>
-                    <IonLabel>Minimum Purchase Volume</IonLabel>
+                    <IonLabel position="floating">
+                      Minimum Purchase Volume
+                    </IonLabel>
                     <IonInput
                       onInput={e => setMinimumVolume(e.target.value)}
                       value={minimumVolume}
