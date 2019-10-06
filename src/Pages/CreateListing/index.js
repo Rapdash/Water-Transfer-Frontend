@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Axios from 'axios';
 import {
   IonGrid,
@@ -11,11 +11,13 @@ import {
   IonCol,
   IonItem,
   IonLabel,
-  IonSpinner,
   IonInput
 } from '@ionic/react';
 
 export const CreateListingPage = () => {
+  const [price, setPrice] = useState(null);
+  const [volume, setVolume] = useState(null);
+
   return (
     <IonGrid>
       <IonRow>
@@ -36,7 +38,32 @@ export const CreateListingPage = () => {
                 Create Listing
               </IonCardTitle>
             </IonCardHeader>
-            <IonCardContent></IonCardContent>
+            <IonCardContent>
+              <IonList>
+                <IonItem>
+                  <IonLabel position="floating" color="primary">
+                    Asking Price:
+                  </IonLabel>
+                  <IonInput
+                    onInput={e => setPrice(e.target.value)}
+                    value={price}
+                    type="number"
+                    inputMode="numeric"
+                  />
+                </IonItem>
+                <IonItem>
+                  <IonLabel position="floating" color="primary">
+                    Water Volume:
+                  </IonLabel>
+                  <IonInput
+                    onInput={e => setVolume(e.target.value)}
+                    value={volume}
+                    type="number"
+                    inputMode="numeric"
+                  />
+                </IonItem>
+              </IonList>
+            </IonCardContent>
           </IonCard>
         </IonCol>
       </IonRow>
