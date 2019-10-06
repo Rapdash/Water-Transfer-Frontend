@@ -19,6 +19,10 @@ import {
 export const CreateListingPage = () => {
   const [price, setPrice] = useState(null);
   const [volume, setVolume] = useState(null);
+  const [waterType, setWaterType] = useState('Current Year Project Water');
+
+  const [partialPurchase, setPartialPurchase] = useState(false);
+  const [minimumVolume, setMinimumVolume] = useState(null);
 
   return (
     <IonGrid>
@@ -62,7 +66,11 @@ export const CreateListingPage = () => {
                 </IonItem>
                 <IonItem>
                   <IonLabel>Water Type</IonLabel>
-                  <IonSelect interface="action-sheet">
+                  <IonSelect
+                    interface="action-sheet"
+                    value={waterType}
+                    onChange={e => setWaterType(e.target.value)}
+                  >
                     <IonSelectOption value="Current Year Project Water">
                       Current Year Project Water
                     </IonSelectOption>
@@ -71,6 +79,26 @@ export const CreateListingPage = () => {
                     </IonSelectOption>
                   </IonSelect>
                 </IonItem>
+                {!partialPurchase && (
+                  <IonItem
+                    type="button"
+                    color="light"
+                    onClick={() => setPartialPurchase(true)}
+                  >
+                    <IonLabel>Allow Partial Purchase?</IonLabel>
+                  </IonItem>
+                )}
+                {partialPurchase && (
+                  <IonItem>
+                    <IonLabel>Minimum Purchase Volume</IonLabel>
+                    <IonInput
+                      onInput={e => setMinimumVolume(e.target.value)}
+                      value={minimumVolume}
+                      type="number"
+                      inputMode="numeric"
+                    ></IonInput>
+                  </IonItem>
+                )}
               </IonList>
             </IonCardContent>
           </IonCard>
