@@ -41,9 +41,7 @@ export const CreateListingPage = () => {
             <IonCardContent>
               <IonList>
                 <IonItem>
-                  <IonLabel position="floating" color="primary">
-                    Asking Price:
-                  </IonLabel>
+                  <IonLabel position="floating">Asking Price:</IonLabel>
                   <IonInput
                     onInput={e => setPrice(e.target.value)}
                     value={price}
@@ -52,9 +50,7 @@ export const CreateListingPage = () => {
                   />
                 </IonItem>
                 <IonItem>
-                  <IonLabel position="floating" color="primary">
-                    Water Volume:
-                  </IonLabel>
+                  <IonLabel position="floating">Water Volume:</IonLabel>
                   <IonInput
                     onInput={e => setVolume(e.target.value)}
                     value={volume}
