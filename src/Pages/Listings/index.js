@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { IonGrid, IonCard, IonRow, IonCardContent } from '@ionic/react';
+import { IonGrid, IonRow } from '@ionic/react';
 import Axios from 'axios';
 
 import { ListingCard } from './ListingCard';
+import { Page } from '../../components/Layout/Page';
 
 export const ListingsPage = () => {
   const [listings, setListings] = useState([]);
@@ -18,16 +19,14 @@ export const ListingsPage = () => {
     getListings();
   }, []);
   return (
-    <IonCard>
-      <IonCardContent>
-        <IonGrid>
-          <IonRow>
-            {listings.map(listing => (
-              <ListingCard listing={listing} key={listing._id} />
-            ))}
-          </IonRow>
-        </IonGrid>
-      </IonCardContent>
-    </IonCard>
+    <Page title="Listings">
+      <IonGrid>
+        <IonRow>
+          {listings.map(listing => (
+            <ListingCard listing={listing} key={listing._id} />
+          ))}
+        </IonRow>
+      </IonGrid>
+    </Page>
   );
 };
