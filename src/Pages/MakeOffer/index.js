@@ -14,6 +14,7 @@ import {
   IonSpinner,
   IonInput
 } from '@ionic/react';
+import { Page } from '../../components/Layout/Page';
 
 export const MakeOfferPage = ({ match }) => {
   const [loading, setLoading] = useState(true);
@@ -93,137 +94,110 @@ export const MakeOfferPage = ({ match }) => {
   };
 
   if (loading) return <IonSpinner />;
+
   return (
-    <IonGrid>
-      <IonRow>
-        <IonCol
-          sizeXs={12}
-          sizeSm={10}
-          offsetSm={1}
-          sizeMd={8}
-          offsetMd={2}
-          sizeLg={6}
-          offsetLg={3}
-          sizeXl={6}
-          offsetXl={3}
+    <Page title="Make Offer" form>
+      <IonList>
+        <IonItem className="item-interactive">
+          <IonLabel>Water Type: {listing.waterType}</IonLabel>
+        </IonItem>
+        <IonItem className="item-interactive">
+          <IonLabel>Available Volume: {listing.volume} AF</IonLabel>
+        </IonItem>
+        {listing.partialPurchaseOk && (
+          <IonItem className="item-interactive">
+            <IonLabel>Minumum Purchase: {listing.minimumVolume} AF</IonLabel>
+          </IonItem>
+        )}
+        <IonItem className="item-interactive">
+          <IonLabel>Listed Price: ${listing.price}/AF</IonLabel>
+        </IonItem>
+        {!counterOfferShown && (
+          <IonItem
+            className="ion-margin-top"
+            button
+            color="medium"
+            onClick={() => {
+              setCounterOfferShown(true);
+            }}
+          >
+            <IonLabel position="inline" className="ion-text-center">
+              Click here to counter-offer
+            </IonLabel>
+          </IonItem>
+        )}
+        {counterOfferShown && (
+          <IonItem>
+            <IonLabel color="primary" position="floating">
+              Set Counter Price (in $/AF):
+            </IonLabel>
+            <IonInput
+              type="number"
+              inputMode="numeric"
+              value={counterPrice}
+              onInput={e => setCounterPrice(e.target.value)}
+            />
+          </IonItem>
+        )}
+        {!partialPurchaseShown && (
+          <IonItem
+            button
+            color="dark"
+            onClick={() => {
+              setPartialPurchaseShown(true);
+            }}
+          >
+            <IonLabel position="inline" className="ion-text-center">
+              Click here for a partial purchase.
+            </IonLabel>
+          </IonItem>
+        )}
+        {partialPurchaseShown && (
+          <IonItem>
+            <IonLabel color="primary" position="floating">
+              Volume You'd Like to Purchase (AF)
+            </IonLabel>
+            <IonInput
+              type="number"
+              inputMode="numeric"
+              value={partialVolume}
+              onInput={e => setPartialVolume(e.target.value)}
+            />
+          </IonItem>
+        )}
+        <IonItem
+          className={
+            priceError || volumeError
+              ? 'ion-margin-bottom ion-margin-top'
+              : 'ion-margin-top'
+          }
+          button
+          type="submit"
+          color="primary"
+          onClick={() => handleSubmit()}
         >
-          <IonCard>
-            <IonCardHeader color="primary">
-              <IonCardTitle className="ion-text-center">
-                Make Offer
-              </IonCardTitle>
-            </IonCardHeader>
-            <IonCardContent>
-              <IonList>
-                <IonItem className="item-interactive">
-                  <IonLabel>Water Type: {listing.waterType}</IonLabel>
-                </IonItem>
-                <IonItem className="item-interactive">
-                  <IonLabel>Available Volume: {listing.volume} AF</IonLabel>
-                </IonItem>
-                {listing.partialPurchaseOk && (
-                  <IonItem className="item-interactive">
-                    <IonLabel>
-                      Minumum Purchase: {listing.minimumVolume} AF
-                    </IonLabel>
-                  </IonItem>
-                )}
-                <IonItem className="item-interactive">
-                  <IonLabel>Listed Price: ${listing.price}/AF</IonLabel>
-                </IonItem>
-                {!counterOfferShown && (
-                  <IonItem
-                    className="ion-margin-top"
-                    button
-                    color="medium"
-                    onClick={() => {
-                      setCounterOfferShown(true);
-                    }}
-                  >
-                    <IonLabel position="inline" className="ion-text-center">
-                      Click here to counter-offer
-                    </IonLabel>
-                  </IonItem>
-                )}
-                {counterOfferShown && (
-                  <IonItem>
-                    <IonLabel color="primary" position="floating">
-                      Set Counter Price (in $/AF):
-                    </IonLabel>
-                    <IonInput
-                      type="number"
-                      inputMode="numeric"
-                      value={counterPrice}
-                      onInput={e => setCounterPrice(e.target.value)}
-                    />
-                  </IonItem>
-                )}
-                {!partialPurchaseShown && (
-                  <IonItem
-                    button
-                    color="dark"
-                    onClick={() => {
-                      setPartialPurchaseShown(true);
-                    }}
-                  >
-                    <IonLabel position="inline" className="ion-text-center">
-                      Click here for a partial purchase.
-                    </IonLabel>
-                  </IonItem>
-                )}
-                {partialPurchaseShown && (
-                  <IonItem>
-                    <IonLabel color="primary" position="floating">
-                      Volume You'd Like to Purchase (AF)
-                    </IonLabel>
-                    <IonInput
-                      type="number"
-                      inputMode="numeric"
-                      value={partialVolume}
-                      onInput={e => setPartialVolume(e.target.value)}
-                    />
-                  </IonItem>
-                )}
-                <IonItem
-                  className={
-                    priceError || volumeError
-                      ? 'ion-margin-bottom ion-margin-top'
-                      : 'ion-margin-top'
-                  }
-                  button
-                  type="submit"
-                  color="primary"
-                  onClick={() => handleSubmit()}
-                >
-                  <IonLabel position="inline" className="ion-text-center">
-                    Submit Your Offer
-                  </IonLabel>
-                </IonItem>
-                {priceError && (
-                  <IonItem
-                    color="danger"
-                    className={
-                      volumeError
-                        ? 'item-interactive ion-text-center ion-margin-bottom'
-                        : 'item-interactive ion-text-center'
-                    }
-                  >
-                    <IonLabel>{priceError}</IonLabel>
-                  </IonItem>
-                )}
-                {volumeError && (
-                  <IonItem
-                    color="danger"
-                    className="item-interactive ion-text-center"
-                  >
-                    <IonLabel>{volumeError}</IonLabel>
-                  </IonItem>
-                )}
-              </IonList>
-            </IonCardContent>
-          </IonCard>
-        </IonCol>
-      </IonRow>
-    </IonGrid>
+          <IonLabel position="inline" className="ion-text-center">
+            Submit Your Offer
+          </IonLabel>
+        </IonItem>
+        {priceError && (
+          <IonItem
+            color="danger"
+            className={
+              volumeError
+                ? 'item-interactive ion-text-center ion-margin-bottom'
+                : 'item-interactive ion-text-center'
+            }
+          >
+            <IonLabel>{priceError}</IonLabel>
+          </IonItem>
+        )}
+        {volumeError && (
+          <IonItem color="danger" className="item-interactive ion-text-center">
+            <IonLabel>{volumeError}</IonLabel>
+          </IonItem>
+        )}
+      </IonList>
+    </Page>
   );
 };
