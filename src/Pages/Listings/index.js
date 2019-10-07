@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { IonGrid, IonRow } from '@ionic/react';
+import { IonGrid, IonCard, IonRow, IonCardContent } from '@ionic/react';
 import Axios from 'axios';
 
 import { ListingCard } from './ListingCard';
@@ -18,12 +18,16 @@ export const ListingsPage = () => {
     getListings();
   }, []);
   return (
-    <IonGrid>
-      <IonRow>
-        {listings.map(listing => (
-          <ListingCard listing={listing} key={listing._id} />
-        ))}
-      </IonRow>
-    </IonGrid>
+    <IonCard>
+      <IonCardContent>
+        <IonGrid>
+          <IonRow>
+            {listings.map(listing => (
+              <ListingCard listing={listing} key={listing._id} />
+            ))}
+          </IonRow>
+        </IonGrid>
+      </IonCardContent>
+    </IonCard>
   );
 };
