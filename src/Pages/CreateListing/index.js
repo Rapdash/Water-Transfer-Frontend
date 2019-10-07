@@ -93,21 +93,18 @@ export const CreateListingPage = () => {
                   </IonItem>
                 )}
               </IonList>
-
-              {
-                <IonList>
-                  <IonItem
-                    type="button"
-                    color={partialPurchase ? 'light' : 'medium'}
-                    onClick={() => setPartialPurchase(!partialPurchase)}
-                  >
-                    <IonLabel className="ion-text-center">
-                      Click To {partialPurchase ? 'Disallow' : 'Allow'} Partial
-                      Purchase
-                    </IonLabel>
-                  </IonItem>
-                </IonList>
-              }
+              <IonList>
+                <IonItem
+                  type="button"
+                  color={partialPurchase ? 'medium' : 'primary'}
+                  onClick={() => setPartialPurchase(!partialPurchase)}
+                >
+                  <IonLabel className="ion-text-center">
+                    Click To {partialPurchase ? 'Disallow' : 'Allow'} Partial
+                    Purchase
+                  </IonLabel>
+                </IonItem>
+              </IonList>
             </IonCardContent>
           </IonCard>
         </IonCol>
