@@ -46,21 +46,6 @@ export const MakeOfferPage = ({ match }) => {
     getListings();
   }, [listingId]);
 
-  // const validateAndChangeVolume = e => {
-  //   const volumeInputValue = e.target.value;
-  //   setPartialVolume(volumeInputValue);
-  //   setVolumeError(
-  //     volumeInputValue < listing.minimumVolume
-  //       ? setVolumeError('Volume must be higher than the minimum.')
-  //       : null
-  //   );
-  //   setVolumeError(
-  //     volumeInputValue > 100000
-  //       ? setVolumeError('That Volume Input looks too high.')
-  //       : null
-  //   );
-  // };
-
   const handleSubmit = () => {
     const listingId = listing._id;
     const intCounterPrice = parseInt(counterPrice) || listing.price;
@@ -152,20 +137,22 @@ export const MakeOfferPage = ({ match }) => {
         )}
       </IonList>
       <IonList>
-        <IonItem
-          button
-          color="medium"
-          lines="full"
-          onClick={() => {
-            setPartialPurchaseShown(!partialPurchaseShown);
-            setPartialVolume(listing.volume);
-          }}
-        >
-          <IonLabel position="inline" className="ion-text-center">
-            Click here to {partialPurchaseShown ? 'Cancel' : 'Make'} partial
-            purchase.
-          </IonLabel>
-        </IonItem>
+        {listing.partialPurchaseOk && (
+          <IonItem
+            button
+            color="medium"
+            lines="full"
+            onClick={() => {
+              setPartialPurchaseShown(!partialPurchaseShown);
+              setPartialVolume(listing.volume);
+            }}
+          >
+            <IonLabel position="inline" className="ion-text-center">
+              Click Here to {partialPurchaseShown ? 'Cancel Buying' : 'Buy'}{' '}
+              Part
+            </IonLabel>
+          </IonItem>
+        )}
         <IonItem
           button
           color="dark"
@@ -175,7 +162,7 @@ export const MakeOfferPage = ({ match }) => {
           }}
         >
           <IonLabel position="inline" className="ion-text-center">
-            Click here To {counterOfferShown ? 'Cancel' : 'Make'} Counter Offer
+            Click Here To {counterOfferShown ? 'Cancel' : 'Make'} Counter Offer
           </IonLabel>
         </IonItem>
         <IonItem
