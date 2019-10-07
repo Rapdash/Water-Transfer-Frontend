@@ -112,20 +112,6 @@ export const MakeOfferPage = ({ match }) => {
         <IonItem className="item-interactive">
           <IonLabel>Listed Price: ${listing.price}/AF</IonLabel>
         </IonItem>
-        {!counterOfferShown && (
-          <IonItem
-            className="ion-margin-top"
-            button
-            color="medium"
-            onClick={() => {
-              setCounterOfferShown(true);
-            }}
-          >
-            <IonLabel position="inline" className="ion-text-center">
-              Click here to counter-offer
-            </IonLabel>
-          </IonItem>
-        )}
         {counterOfferShown && (
           <IonItem>
             <IonLabel color="primary" position="floating">
@@ -139,23 +125,10 @@ export const MakeOfferPage = ({ match }) => {
             />
           </IonItem>
         )}
-        {!partialPurchaseShown && (
-          <IonItem
-            button
-            color="dark"
-            onClick={() => {
-              setPartialPurchaseShown(true);
-            }}
-          >
-            <IonLabel position="inline" className="ion-text-center">
-              Click here for a partial purchase.
-            </IonLabel>
-          </IonItem>
-        )}
         {partialPurchaseShown && (
           <IonItem>
             <IonLabel color="primary" position="floating">
-              Volume You'd Like to Purchase (AF)
+              Volume You'd Like to Buy (AF)
             </IonLabel>
             <IonInput
               type="number"
@@ -165,6 +138,32 @@ export const MakeOfferPage = ({ match }) => {
             />
           </IonItem>
         )}
+      </IonList>
+      <IonList>
+        <IonItem
+          button
+          color="medium"
+          lines="full"
+          onClick={() => {
+            setPartialPurchaseShown(!partialPurchaseShown);
+          }}
+        >
+          <IonLabel position="inline" className="ion-text-center">
+            Click here to {partialPurchaseShown ? 'Cancel' : 'Make'} partial
+            purchase.
+          </IonLabel>
+        </IonItem>
+        <IonItem
+          button
+          color="dark"
+          onClick={() => {
+            setCounterOfferShown(!counterOfferShown);
+          }}
+        >
+          <IonLabel position="inline" className="ion-text-center">
+            Click here To {counterOfferShown ? 'Cancel' : 'Make'} Counter Offer
+          </IonLabel>
+        </IonItem>
         <IonItem
           className={
             priceError || volumeError

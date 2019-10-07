@@ -65,7 +65,9 @@ export const CreateListingPage = () => {
         </IonItem>
         {partialPurchase && (
           <IonItem>
-            <IonLabel position="floating">Minimum Purchase Volume</IonLabel>
+            <IonLabel position="floating">
+              Minimum Purchase Volume (AF)
+            </IonLabel>
             <IonInput
               onInput={e => setMinimumVolume(e.target.value)}
               value={minimumVolume}
