@@ -19,7 +19,10 @@ export const Page = ({ title, form, children }) => (
         </IonCardTitle>
       </IonCardHeader>
       <IonCardContent>
+        {/* For Not-Otherwise-Specified Views */}
         {!form && children}
+
+        {/* For Form-Based Views */}
         {form && (
           <IonGrid style={{ margin: 0 }}>
             <IonRow>
