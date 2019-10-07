@@ -106,6 +106,18 @@ export const MakeOfferPage = ({ match }) => {
         </IonItem>
         {listing.partialPurchaseOk && (
           <IonItem className="item-interactive">
+            <IonLabel>
+              Minimum Purchase Volume: {listing.minimumVolume} AF
+            </IonLabel>
+          </IonItem>
+        )}
+        {!listing.partialPurchaseOk && (
+          <IonItem className="item-interactive">
+            <IonLabel>No Partial Purchases</IonLabel>
+          </IonItem>
+        )}
+        {listing.partialPurchaseOk && (
+          <IonItem className="item-interactive">
             <IonLabel>Minumum Purchase: {listing.minimumVolume} AF</IonLabel>
           </IonItem>
         )}
@@ -115,7 +127,7 @@ export const MakeOfferPage = ({ match }) => {
         {counterOfferShown && (
           <IonItem>
             <IonLabel color="primary" position="floating">
-              Set Counter Price (in $/AF):
+              Set Counter Price ($/AF):
             </IonLabel>
             <IonInput
               type="number"
@@ -146,6 +158,7 @@ export const MakeOfferPage = ({ match }) => {
           lines="full"
           onClick={() => {
             setPartialPurchaseShown(!partialPurchaseShown);
+            setPartialVolume(listing.volume);
           }}
         >
           <IonLabel position="inline" className="ion-text-center">
@@ -158,6 +171,7 @@ export const MakeOfferPage = ({ match }) => {
           color="dark"
           onClick={() => {
             setCounterOfferShown(!counterOfferShown);
+            setCounterPrice(listing.price);
           }}
         >
           <IonLabel position="inline" className="ion-text-center">
