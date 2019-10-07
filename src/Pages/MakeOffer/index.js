@@ -1,19 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
-import {
-  IonGrid,
-  IonCard,
-  IonCardHeader,
-  IonCardContent,
-  IonCardTitle,
-  IonList,
-  IonRow,
-  IonCol,
-  IonItem,
-  IonLabel,
-  IonSpinner,
-  IonInput
-} from '@ionic/react';
+import { IonList, IonItem, IonLabel, IonSpinner, IonInput } from '@ionic/react';
 import { Page } from '../../components/Layout/Page';
 
 export const MakeOfferPage = ({ match }) => {
