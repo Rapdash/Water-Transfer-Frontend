@@ -79,17 +79,6 @@ export const CreateListingPage = () => {
                     </IonSelectOption>
                   </IonSelect>
                 </IonItem>
-                {!partialPurchase && (
-                  <IonItem
-                    type="button"
-                    color="medium"
-                    onClick={() => setPartialPurchase(true)}
-                  >
-                    <IonLabel className="ion-text-center">
-                      Click To Allow Partial Purchase
-                    </IonLabel>
-                  </IonItem>
-                )}
                 {partialPurchase && (
                   <IonItem>
                     <IonLabel position="floating">
@@ -104,6 +93,20 @@ export const CreateListingPage = () => {
                   </IonItem>
                 )}
               </IonList>
+
+              {!partialPurchase && (
+                <IonList>
+                  <IonItem
+                    type="button"
+                    color="medium"
+                    onClick={() => setPartialPurchase(true)}
+                  >
+                    <IonLabel className="ion-text-center">
+                      Click To Allow Partial Purchase
+                    </IonLabel>
+                  </IonItem>
+                </IonList>
+              )}
             </IonCardContent>
           </IonCard>
         </IonCol>
