@@ -34,29 +34,26 @@ export const MakeOfferPage = ({ match }) => {
   }, [listingId]);
 
   const handleSubmit = () => {
+    // Null out the errors
+    setVolumeError(null);
+    setPriceError(null);
     const listingId = listing._id;
     const intCounterPrice = parseInt(counterPrice) || listing.price;
-    const priceTooLow = intCounterPrice < 0;
-    if (priceTooLow) {
+    if (intCounterPrice < 0) {
       setPriceError('Price Must Be Above 0');
     }
-    const priceTooHigh = intCounterPrice > listing.price;
-    if (priceTooHigh) {
+    if (intCounterPrice > listing.price) {
       setPriceError(`Price Must Be Below $${listing.price}/AF`);
     }
     const intPartialVolume = parseInt(partialVolume) || listing.volume;
-    const volumeTooLow = intPartialVolume <= listing.minimumVolume;
-    if (volumeTooLow) {
+    if (intPartialVolume <= listing.minimumVolume) {
       setVolumeError(`Volume Must Be Above ${listing.minimumVolume} AF`);
     }
-    const volumeTooHigh = intPartialVolume > listing.volume;
-    if (volumeTooHigh) {
+    if (intPartialVolume > listing.volume) {
       setVolumeError(`Volume must be below ${listing.volume} AF`);
     }
 
-    const formIsValid =
-      !priceTooLow && !priceTooHigh && !volumeTooLow && !volumeTooHigh;
-    if (formIsValid) {
+    if (!volumeError && !priceError) {
       Axios.post('http://localhost:9001/offer/create', {
         offerPrice: intCounterPrice,
         offerVolume: intPartialVolume,
