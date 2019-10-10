@@ -44,7 +44,7 @@ export const CreateListingPage = () => {
           />
         </IonItem>
         <IonItem>
-          <IonLabel position="floating">Water Type</IonLabel>
+          <IonLabel position="floating">Water Type:</IonLabel>
           <IonSelect
             interface="action-sheet"
             value={waterType}
