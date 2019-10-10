@@ -14,15 +14,29 @@ import {
 import { Page } from '../../components/Layout/Page';
 
 export const CreateListingPage = () => {
-  const [price, setPrice] = useState('');
-  const [volume, setVolume] = useState('null');
+  const [price, setPrice] = useState(null);
+  const [volume, setVolume] = useState(null);
   const [waterType, setWaterType] = useState('Current Year Project Water');
 
   const [partialPurchase, setPartialPurchase] = useState(false);
   const [minimumVolume, setMinimumVolume] = useState(null);
 
+  const [priceError, setPriceError] = useState(null);
+  const [volumeError, setVolumeError] = useState(null);
+
   const handleSubmit = () => {
     console.log(price, volume, waterType, partialPurchase, minimumVolume);
+    if (!price) {
+      setPriceError('Price must be set');
+    }
+    if (price <= 0) {
+      setPriceError('Price can not be negative or zero.');
+    }
+    if (!volume) {
+      setVolumeError('Volume must be set');
+    }
+    if (volume <= 0) {
+    }
   };
 
   return (
