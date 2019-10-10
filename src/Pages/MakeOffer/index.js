@@ -38,15 +38,15 @@ export const MakeOfferPage = ({ match }) => {
     setVolumeError(null);
     setPriceError(null);
     const listingId = listing._id;
-    const intCounterPrice = parseInt(counterPrice) || listing.price;
+    const intCounterPrice = counterPrice;
     if (intCounterPrice < 0) {
       setPriceError('Price Must Be Above 0');
     }
     if (intCounterPrice > listing.price) {
       setPriceError(`Price Must Be Below $${listing.price}/AF`);
     }
-    const intPartialVolume = parseInt(partialVolume) || listing.volume;
-    if (intPartialVolume <= listing.minimumVolume) {
+    const intPartialVolume = partialVolume;
+    if (intPartialVolume >= listing.minimumVolume) {
       setVolumeError(`Volume Must Be Above ${listing.minimumVolume} AF`);
     }
     if (intPartialVolume > listing.volume) {
