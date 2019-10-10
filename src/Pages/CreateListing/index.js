@@ -90,7 +90,7 @@ export const CreateListingPage = () => {
           style={{ cursor: 'pointer' }}
           type="button"
           color={'dark'}
-          onClick={() => submit()}
+          onClick={() => handleSubmit()}
         >
           <IonLabel className="ion-text-center">Submit</IonLabel>
         </IonItem>
