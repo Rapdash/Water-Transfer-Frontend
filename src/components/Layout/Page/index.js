@@ -37,9 +37,11 @@ export const Page = ({ title, form, children }) => (
                 sizeXl={6}
                 offsetXl={3}
               >
-                <IonCard>
+                {/* The css is to keep the card from showing on mobile. Not enough screen real estate at <380px or so */}
+                <IonCard className="ion-hide-sm-down">
                   <IonCardContent>{children}</IonCardContent>
                 </IonCard>
+                <div className="ion-hide-sm-up">{children}</div>
               </IonCol>
             </IonRow>
           </IonGrid>
