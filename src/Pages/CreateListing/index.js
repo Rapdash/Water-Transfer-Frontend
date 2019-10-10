@@ -22,6 +22,10 @@ export const CreateListingPage = () => {
   const [partialPurchase, setPartialPurchase] = useState(false);
   const [minimumVolume, setMinimumVolume] = useState(null);
 
+  const submit = () => {
+    console.log(price, volume, waterType, partialPurchase, minimumVolume);
+  };
+
   return (
     <Page title="Create Listing" form>
       <IonList>
@@ -76,6 +80,13 @@ export const CreateListingPage = () => {
           color={partialPurchase ? 'medium' : 'primary'}
           onClick={() => setPartialPurchase(!partialPurchase)}
         >
+          <IonLabel className="ion-text-center">
+            Click To {partialPurchase ? 'Disallow' : 'Allow'} Partial Purchase
+          </IonLabel>
+        </IonItem>
+      </IonList>
+      <IonList>
+        <IonItem type="button" color={'dark'} onClick={() => submit()}>
           <IonLabel className="ion-text-center">
             Click To {partialPurchase ? 'Disallow' : 'Allow'} Partial Purchase
           </IonLabel>
