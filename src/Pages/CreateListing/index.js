@@ -14,8 +14,8 @@ import {
 import { Page } from '../../components/Layout/Page';
 
 export const CreateListingPage = () => {
-  const [price, setPrice] = useState(null);
-  const [volume, setVolume] = useState(null);
+  const [price, setPrice] = useState('');
+  const [volume, setVolume] = useState('null');
   const [waterType, setWaterType] = useState('Current Year Project Water');
 
   const [partialPurchase, setPartialPurchase] = useState(false);
