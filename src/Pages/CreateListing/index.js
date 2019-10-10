@@ -36,6 +36,7 @@ export const CreateListingPage = () => {
       setVolumeError('Volume must be set');
     }
     if (volume <= 0) {
+      setVolumeError('Volume can not be negative or zero.');
     }
   };
 
