@@ -21,7 +21,7 @@ export const CreateListingPage = () => {
   const [partialPurchase, setPartialPurchase] = useState(false);
   const [minimumVolume, setMinimumVolume] = useState(null);
 
-  const submit = () => {
+  const handleSubmit = () => {
     console.log(price, volume, waterType, partialPurchase, minimumVolume);
   };
 
