@@ -25,6 +25,8 @@ export const CreateListingPage = () => {
   const [volumeError, setVolumeError] = useState(null);
 
   const handleSubmit = () => {
+    setPriceError(null);
+    setVolumeError(null);
     console.log(price, volume, waterType, partialPurchase, minimumVolume);
     if (!price) {
       setPriceError('Price must be set');
