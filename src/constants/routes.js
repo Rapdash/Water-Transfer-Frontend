@@ -4,7 +4,7 @@
 // Non-Authed
 export const login = '/';
 export const accessRequest = '/request-access';
-// Auhthed
+// Authed
 export const listings = '/listings';
 export const makeOffer = '/listings/:id';
 export const myListings = '/my-listings';
