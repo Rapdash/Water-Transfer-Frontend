@@ -11,7 +11,7 @@ import {
   IonSelectOption
 } from '@ionic/react';
 
-import { Page } from '../../components/Layout/Page';
+import { Page } from '../../components/Shared/Page';
 
 export const CreateListingPage = () => {
   const [price, setPrice] = useState(null);
@@ -39,6 +39,8 @@ export const CreateListingPage = () => {
     }
     if (volume <= 0) {
       setVolumeError('Volume can not be negative or zero.');
+    }
+    if (!priceError && !volumeError) {
     }
   };
 
