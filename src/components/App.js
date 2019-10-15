@@ -15,8 +15,7 @@ export const App = () => {
   }, []);
   return (
     <AuthProvider value={{ user: authState, setAuthState }}>
-      {!isLoaded && <IonSpinner />}
-      {isLoaded && <Layout />}
+      {isLoaded ? <Layout /> : <IonSpinner />}
     </AuthProvider>
   );
 };
