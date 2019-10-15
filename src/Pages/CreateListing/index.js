@@ -11,7 +11,7 @@ import {
   IonSelectOption
 } from '@ionic/react';
 
-import { Page } from '../../components/Shared/Page';
+import { Page } from '../../components/shared/Page';
 
 export const CreateListingPage = () => {
   const [price, setPrice] = useState(null);

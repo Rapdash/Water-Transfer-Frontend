@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import { IonList, IonItem, IonLabel, IonSpinner, IonInput } from '@ionic/react';
-import { Page } from '../../components/Layout/Page';
+import { Page } from '../../components/shared/Page';
 
 export const MakeOfferPage = ({ match }) => {
   const [loading, setLoading] = useState(true);

@@ -3,7 +3,7 @@ import { IonGrid, IonRow } from '@ionic/react';
 import Axios from 'axios';
 
 import { ListingCard } from './ListingCard';
-import { Page } from '../../components/Layout/Page';
+import { Page } from '../../components/shared/Page';
 
 export const ListingsPage = () => {
   const [listings, setListings] = useState([]);
