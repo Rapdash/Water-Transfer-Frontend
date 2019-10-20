@@ -1,7 +1,7 @@
 // CreateListingPage Component
 
 import React, { useState } from 'react';
-// import Axios from 'axios';
+import Axios from 'axios';
 import {
   IonList,
   IonItem,
@@ -18,7 +18,7 @@ export const CreateListingPage = () => {
   const [volume, setVolume] = useState(null);
   const [waterType, setWaterType] = useState('Current Year Project Water');
 
-  const [partialPurchase, setPartialPurchase] = useState(false);
+  const [partialPurchaseOk, setPartialPurchaseOk] = useState(false);
   const [minimumVolume, setMinimumVolume] = useState(null);
 
   const [priceError, setPriceError] = useState(null);
@@ -27,7 +27,7 @@ export const CreateListingPage = () => {
   const handleSubmit = () => {
     setPriceError(null);
     setVolumeError(null);
-    console.log(price, volume, waterType, partialPurchase, minimumVolume);
+    console.log(price, volume, waterType, partialPurchaseOk, minimumVolume);
     if (!price) {
       setPriceError('Price must be set');
     }
@@ -41,6 +41,11 @@ export const CreateListingPage = () => {
       setVolumeError('Volume can not be negative or zero.');
     }
     if (!priceError && !volumeError) {
+      Axios.post(
+        'http://localhost:9001/offer/create',
+        { price, volume, waterType, partialPurchaseOk, minimumVolume },
+        { headers: { Authorization: localStorage.getItem('token') } }
+      );
     }
   };
 
@@ -78,7 +83,7 @@ export const CreateListingPage = () => {
             <IonSelectOption value="Other Type">Other Type</IonSelectOption>
           </IonSelect>
         </IonItem>
-        {partialPurchase && (
+        {partialPurchaseOk && (
           <IonItem>
             <IonLabel position="floating">
               Minimum Purchase Volume (AF)
@@ -96,11 +101,11 @@ export const CreateListingPage = () => {
         <IonItem
           style={{ cursor: 'pointer' }}
           type="button"
-          color={partialPurchase ? 'medium' : 'primary'}
-          onClick={() => setPartialPurchase(!partialPurchase)}
+          color={partialPurchaseOk ? 'medium' : 'primary'}
+          onClick={() => setPartialPurchaseOk(!partialPurchaseOk)}
         >
           <IonLabel className="ion-text-center">
-            Click To {partialPurchase ? 'Disallow' : 'Allow'} Partial Purchase
+            Click To {partialPurchaseOk ? 'Disallow' : 'Allow'} Partial Purchase
           </IonLabel>
         </IonItem>
       </IonList>
