@@ -54,11 +54,15 @@ export const MakeOfferPage = ({ match }) => {
     }
 
     if (!volumeError && !priceError) {
-      Axios.post('http://localhost:9001/offer/', {
-        offerPrice: counterPrice,
-        offerVolume: partialVolume,
-        parentListingId: listingId
-      });
+      Axios.post(
+        'http://localhost:9001/offer/',
+        {
+          counterPrice,
+          offerVolume: partialVolume,
+          parentListingId: listingId
+        },
+        { headers: { Authorization: localStorage.getItem('token') } }
+      );
     }
   };
 
