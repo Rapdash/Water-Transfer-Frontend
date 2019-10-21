@@ -18,7 +18,7 @@ export const MakeOfferPage = ({ match }) => {
   const listingId = match.params.id;
 
   useEffect(() => {
-    const getListings = async () => {
+    const getListing = async () => {
       const response = await Axios.get(
         `http://localhost:9001/listing/${listingId}`,
         {
@@ -30,7 +30,7 @@ export const MakeOfferPage = ({ match }) => {
       setListing(response.data);
       setLoading(false);
     };
-    getListings();
+    getListing();
   }, [listingId]);
 
   const handleSubmit = () => {
