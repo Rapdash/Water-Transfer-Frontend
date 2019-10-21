@@ -54,7 +54,7 @@ export const MakeOfferPage = ({ match }) => {
     }
 
     if (!volumeError && !priceError) {
-      Axios.post('http://localhost:9001/offer/create', {
+      Axios.post('http://localhost:9001/offer/', {
         offerPrice: counterPrice,
         offerVolume: partialVolume,
         parentListingId: listingId
