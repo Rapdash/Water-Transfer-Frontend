@@ -42,8 +42,14 @@ export const CreateListingPage = () => {
     }
     if (!priceError && !volumeError) {
       Axios.post(
-        'http://localhost:9001/offer/create',
-        { price, volume, waterType, partialPurchaseOk, minimumVolume },
+        'http://localhost:9001/listing/',
+        {
+          price,
+          volume,
+          waterType,
+          partialPurchaseOk,
+          minimumVolume: minimumVolume || volume
+        },
         { headers: { Authorization: localStorage.getItem('token') } }
       );
     }
