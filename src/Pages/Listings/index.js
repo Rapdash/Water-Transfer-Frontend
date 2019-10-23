@@ -1,14 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {
-  IonGrid,
-  IonRow,
-  IonCard,
-  IonCardHeader,
-  IonCardTitle,
-  IonCol,
-  IonCardContent,
-  IonText
-} from '@ionic/react';
+import { IonGrid, IonRow } from '@ionic/react';
 import Axios from 'axios';
 
 import { ListingCard } from './ListingCard';

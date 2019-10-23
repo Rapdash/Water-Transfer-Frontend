@@ -26,9 +26,16 @@ export const NoListingCard = ({ myListings }) => (
       </IonCardHeader>
       <IonCardContent>
         <IonText>
-          <p className="ion-text-center">
-            There are no listings from other users currently available
-          </p>
+          {myListings && (
+            <p className="ion-text-center">
+              There are no listings from other users currently available
+            </p>
+          )}
+          {!myListings && (
+            <p className="ion-text-center">
+              You don't have any active listings right now.
+            </p>
+          )}
         </IonText>
       </IonCardContent>
     </IonCard>
