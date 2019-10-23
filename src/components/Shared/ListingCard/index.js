@@ -47,11 +47,20 @@ export const ListingCard = ({ listing, myListing }) => {
               Availability Verified
             </IonText>
           )}
-          <Link to={listingsRoute + '/' + _id}>
-            <IonButton class="ion-margin-top" expand="full">
-              Details / Make An Offer
-            </IonButton>
-          </Link>
+          {!myListing && (
+            <Link to={listingsRoute + '/' + _id}>
+              <IonButton class="ion-margin-top" expand="full">
+                Details / Make An Offer
+              </IonButton>
+            </Link>
+          )}
+          {myListing && (
+            <Link to={listingsRoute + '/' + _id}>
+              <IonButton class="ion-margin-top" expand="full">
+                Edit / Remove
+              </IonButton>
+            </Link>
+          )}
         </IonCardContent>
       </IonCard>
     </IonCol>
