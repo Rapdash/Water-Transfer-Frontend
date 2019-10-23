@@ -13,6 +13,7 @@ import Axios from 'axios';
 
 import { ListingCard } from './ListingCard';
 import { Page } from '../../components/shared/Page';
+import { NoListingCard } from '../../components/shared/NoListingCard';
 
 export const ListingsPage = () => {
   const [listings, setListings] = useState([]);
@@ -36,36 +37,7 @@ export const ListingsPage = () => {
             listings.map(listing => (
               <ListingCard listing={listing} key={listing._id} />
             ))}
-          {!listings ||
-            (!listings[0] && (
-              <IonCol
-                sizeXs={12}
-                sizeSm={8}
-                offsetSm={2}
-                sizeMd={6}
-                offsetMd={3}
-                sizeLg={6}
-                offsetLg={3}
-                sizeXl={4}
-                offsetXl={4}
-              >
-                <IonCard>
-                  <IonCardHeader>
-                    <IonCardTitle className="ion-text-center">
-                      No Listings
-                    </IonCardTitle>
-                  </IonCardHeader>
-                  <IonCardContent>
-                    <IonText>
-                      <p className="ion-text-center">
-                        There are no listings from other users currently
-                        available
-                      </p>
-                    </IonText>
-                  </IonCardContent>
-                </IonCard>
-              </IonCol>
-            ))}
+          {!listings || (!listings[0] && <NoListingCard />)}
         </IonRow>
       </IonGrid>
     </Page>
