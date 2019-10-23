@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { IonGrid, IonRow } from '@ionic/react';
 import Axios from 'axios';
 
-import { ListingCard } from './ListingCard';
+import { ListingCard } from '../../components/shared/ListingCard';
 import { Page } from '../../components/shared/Page';
 import { NoListingCard } from '../../components/shared/NoListingCard';
 

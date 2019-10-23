@@ -4,8 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { IonGrid, IonRow } from '@ionic/react';
 import Axios from 'axios';
 
-import { Page } from '../../components/shared/Page';
-import { NoListingCard } from '../../components/shared/NoListingCard';
+import { Page, ListingCard, NoListingCard } from '../../components/shared';
 
 export const MyListingsPage = () => {
   const [listings, setListings] = useState([]);
@@ -28,6 +27,11 @@ export const MyListingsPage = () => {
     <Page title="My Listings">
       <IonGrid>
         <IonRow>
+          {listings &&
+            listings[0] &&
+            listings.map(listing => (
+              <ListingCard listing={listing} key={listing._id} myListing />
+            ))}
           {!listings || (!listings[0] && <NoListingCard myListings />)}
         </IonRow>
       </IonGrid>

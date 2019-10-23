@@ -10,9 +10,9 @@ import {
   IonButton
 } from '@ionic/react';
 import { Link } from 'react-router-dom';
-import { listings as listingsRoute } from '../../constants/routes';
+import { listings as listingsRoute } from '../../../constants/routes';
 
-export const ListingCard = ({ listing }) => {
+export const ListingCard = ({ listing, myListing }) => {
   const {
     _id,
     waterType,
