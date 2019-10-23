@@ -54,7 +54,7 @@ const BaseCreateListingPage = ({ history }) => {
         { headers: { Authorization: localStorage.getItem('token') } }
       )
         .then(() => {
-          history.push('/');
+          history.push('/my-listings');
         })
         .catch(err => {
           console.log(err.response);

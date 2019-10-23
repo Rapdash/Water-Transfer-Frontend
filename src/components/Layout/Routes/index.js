@@ -12,7 +12,8 @@ import {
   LogoutPage,
   ListingsPage,
   MakeOfferPage,
-  CreateListingPage
+  CreateListingPage,
+  MyListingsPage
 } from '../../../Pages';
 
 import {
@@ -20,7 +21,8 @@ import {
   login,
   listings,
   makeOffer,
-  createListing
+  createListing,
+  myListings
 } from '../../../constants/routes';
 
 export const Routes = () => (
@@ -31,6 +33,7 @@ export const Routes = () => (
       <PrivateRoute path={makeOffer} component={MakeOfferPage} />
       <PrivateRoute path={listings} component={ListingsPage} />
       <PrivateRoute path={createListing} component={CreateListingPage} />
+      <PrivateRoute path={myListings} component={MyListingsPage} />
       {/* Non-Authed */}
       <NonAuthedRoute path={login} exact component={LoginPage} />
     </Switch>
