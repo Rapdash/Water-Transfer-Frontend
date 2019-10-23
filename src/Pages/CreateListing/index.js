@@ -14,7 +14,7 @@ import { withRouter } from 'react-router-dom';
 
 import { Page } from '../../components/shared/Page';
 
-const BaseCreateListingPage = () => {
+const BaseCreateListingPage = ({ history }) => {
   const [price, setPrice] = useState(null);
   const [volume, setVolume] = useState(null);
   const [waterType, setWaterType] = useState('Current Year Project Water');
@@ -52,7 +52,13 @@ const BaseCreateListingPage = () => {
           minimumVolume: minimumVolume || volume
         },
         { headers: { Authorization: localStorage.getItem('token') } }
-      );
+      )
+        .then(() => {
+          history.push('/');
+        })
+        .catch(err => {
+          console.log(err.response);
+        });
     }
   };
 
