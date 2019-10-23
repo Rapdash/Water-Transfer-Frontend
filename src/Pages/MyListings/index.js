@@ -11,15 +11,19 @@ export const MyListingsPage = () => {
   const [listings, setListings] = useState([]);
   useEffect(() => {
     const getListings = async () => {
-      const response = await Axios.get('http://localhost:9001/listing', {
-        headers: {
-          Authorization: localStorage.getItem('token')
+      const response = await Axios.get(
+        'http://localhost:9001/listing?mine=true',
+        {
+          headers: {
+            Authorization: localStorage.getItem('token')
+          }
         }
-      });
+      );
       setListings(response.data);
     };
     getListings();
   }, []);
+  console.log(listings);
   return (
     <Page title="My Listings">
       <IonGrid>
