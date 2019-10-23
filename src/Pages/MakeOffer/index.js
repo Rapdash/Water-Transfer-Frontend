@@ -37,7 +37,6 @@ export const MakeOfferPage = ({ match }) => {
     // Null out the errors
     setVolumeError(null);
     setPriceError(null);
-    const listingId = listing._id;
 
     if (counterPrice < 0) {
       setPriceError('Price Must Be Above 0');
@@ -53,13 +52,20 @@ export const MakeOfferPage = ({ match }) => {
       setVolumeError(`Volume must be below ${listing.volume} AF`);
     }
 
+    if (!partialVolume) {
+      setPartialVolume(listing.volume);
+    }
+    if (!counterPrice) {
+      setCounterPrice(listing.price);
+    }
+
     if (!volumeError && !priceError) {
       Axios.post(
         'http://localhost:9001/offer/',
         {
-          counterPrice,
-          offerVolume: partialVolume,
-          parentListingId: listingId
+          counterPrice: counterPrice || listing.price,
+          requestedVolume: partialVolume || listing.volume,
+          parentListingId: listing._id
         },
         { headers: { Authorization: localStorage.getItem('token') } }
       );
