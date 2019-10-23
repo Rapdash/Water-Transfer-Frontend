@@ -12,7 +12,7 @@ import {
 
 export const Page = ({ title, form, children }) => (
   <IonPage>
-    <IonCard>
+    <IonCard style={{ overflow: 'scroll' }}>
       <IonCardHeader>
         <IonCardTitle className="ion-text-center" style={{ fontSize: 30 }}>
           {title}
