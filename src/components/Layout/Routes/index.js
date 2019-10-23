@@ -13,7 +13,8 @@ import {
   ListingsPage,
   MakeOfferPage,
   CreateListingPage,
-  MyListingsPage
+  MyListingsPage,
+  IncomingOffersPage
 } from '../../../Pages';
 
 import {
@@ -22,7 +23,8 @@ import {
   listings,
   makeOffer,
   createListing,
-  myListings
+  myListings,
+  incomingOffers
 } from '../../../constants/routes';
 
 export const Routes = () => (
@@ -31,6 +33,7 @@ export const Routes = () => (
       {/* Authed */}
       <PrivateRoute path={logout} component={LogoutPage} />
       <PrivateRoute path={makeOffer} component={MakeOfferPage} />
+      <PrivateRoute path={incomingOffers} component={IncomingOffersPage} />
       <PrivateRoute path={listings} component={ListingsPage} />
       <PrivateRoute path={createListing} component={CreateListingPage} />
       <PrivateRoute path={myListings} component={MyListingsPage} />
