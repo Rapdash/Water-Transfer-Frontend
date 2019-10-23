@@ -10,10 +10,11 @@ import {
   IonSelect,
   IonSelectOption
 } from '@ionic/react';
+import { withRouter } from 'react-router-dom';
 
 import { Page } from '../../components/shared/Page';
 
-export const CreateListingPage = () => {
+const BaseCreateListingPage = () => {
   const [price, setPrice] = useState(null);
   const [volume, setVolume] = useState(null);
   const [waterType, setWaterType] = useState('Current Year Project Water');
@@ -128,3 +129,5 @@ export const CreateListingPage = () => {
     </Page>
   );
 };
+
+export const CreateListingPage = withRouter(BaseCreateListingPage);
