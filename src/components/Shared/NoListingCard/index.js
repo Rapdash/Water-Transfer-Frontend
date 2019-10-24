@@ -8,7 +8,7 @@ import {
   IonText
 } from '@ionic/react';
 
-export const NoListingCard = ({ myListings }) => (
+export const NoListingCard = ({ cardInfo, cardTitle }) => (
   <IonCol
     sizeXs={12}
     sizeSm={8}
@@ -22,20 +22,11 @@ export const NoListingCard = ({ myListings }) => (
   >
     <IonCard>
       <IonCardHeader>
-        <IonCardTitle className="ion-text-center">No Listings</IonCardTitle>
+        <IonCardTitle className='ion-text-center'>{cardTitle}</IonCardTitle>
       </IonCardHeader>
       <IonCardContent>
         <IonText>
-          {!myListings && (
-            <p className="ion-text-center">
-              There are no listings from other users currently available
-            </p>
-          )}
-          {myListings && (
-            <p className="ion-text-center">
-              You don't have any active listings right now.
-            </p>
-          )}
+          <p className='ion-text-center'>{cardInfo}</p>
         </IonText>
       </IonCardContent>
     </IonCard>
