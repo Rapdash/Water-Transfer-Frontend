@@ -51,7 +51,6 @@ export const ListingWithOffersCard = ({ listing, offers }) => {
               <IonButton expand='full' className='ion-margin-top'>
                 View {relevantOffers.length} Offer
                 {relevantOffers.length > 1 && 's'} / Remove
-                {relevantOffers.length > 1 && 's'}
               </IonButton>
             </Link>
           )}
