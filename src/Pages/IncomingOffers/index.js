@@ -11,9 +11,9 @@ export const IncomingOffersPage = () => {
         headers: { Authorization: localStorage.getItem('token') }
       });
       setOffers(response.data);
-      console.log('lol');
     };
     getOffers();
   }, []);
+  console.log(offers);
   return <Page title='Incoming Offers'></Page>;
 };
