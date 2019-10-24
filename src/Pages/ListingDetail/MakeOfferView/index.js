@@ -77,19 +77,8 @@ export const MakeOfferView = ({ listing }) => {
         <IonItem className='item-interactive'>
           <IonLabel>Listed Price: ${listing.price}/AF</IonLabel>
         </IonItem>
-        {counterOfferShown && (
-          <IonItem>
-            <IonLabel color='primary' position='floating'>
-              Set Counter Price ($/AF):
-            </IonLabel>
-            <IonInput
-              type='number'
-              inputMode='numeric'
-              value={counterPrice}
-              onInput={e => setCounterPrice(e.target.value)}
-            />
-          </IonItem>
-        )}
+      </IonList>
+      <IonList>
         {partialPurchaseShown && (
           <IonItem>
             <IonLabel color='primary' position='floating'>
@@ -103,8 +92,6 @@ export const MakeOfferView = ({ listing }) => {
             />
           </IonItem>
         )}
-      </IonList>
-      <IonList>
         {listing.partialPurchaseOk && (
           <IonItem
             button
@@ -119,6 +106,19 @@ export const MakeOfferView = ({ listing }) => {
               Click Here to {partialPurchaseShown ? 'Cancel Buying' : 'Buy'}{' '}
               Part
             </IonLabel>
+          </IonItem>
+        )}
+        {counterOfferShown && (
+          <IonItem>
+            <IonLabel color='primary' position='floating'>
+              Set Counter Price ($/AF):
+            </IonLabel>
+            <IonInput
+              type='number'
+              inputMode='numeric'
+              value={counterPrice}
+              onInput={e => setCounterPrice(e.target.value)}
+            />
           </IonItem>
         )}
         <IonItem

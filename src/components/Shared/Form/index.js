@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { IonGrid, IonRow, IonCol, IonCard, IonCardContent } from '@ionic/react';
+import { IonGrid, IonRow, IonCol, IonCard } from '@ionic/react';
 
 export const Form = ({ children }) => (
   <IonGrid style={{ margin: 0, padding: 0 }}>
