@@ -39,7 +39,7 @@ export const IncomingOffersPage = () => {
     ));
 
   return (
-    <Page title='Incoming Offers'>
+    <Page title='My Listings / Incoming Offers'>
       {!offers && (
         <NoDataCard
           cardInfo='Nobody has made offers on your listings yet.'
