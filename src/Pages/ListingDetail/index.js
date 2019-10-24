@@ -3,6 +3,7 @@ import { IonSpinner } from '@ionic/react';
 import Axios from 'axios';
 
 import { MakeOfferView } from './MakeOfferView';
+import { OwnedListingView } from './OwnedListingView';
 
 export const ListingDetailPage = ({ match }) => {
   const [loading, setLoading] = useState(true);
@@ -29,7 +30,7 @@ export const ListingDetailPage = ({ match }) => {
 
   return (
     <>
-      {listing.creatorId && <div>lol</div>}
+      {listing.creatorId && <OwnedListingView listing={listing} />}
       {!listing.creatorId && <MakeOfferView listing={listing} />}
     </>
   );
