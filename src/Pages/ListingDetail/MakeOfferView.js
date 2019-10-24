@@ -75,42 +75,42 @@ export const MakeOfferPage = ({ match }) => {
   if (loading) return <IonSpinner />;
 
   return (
-    <Page title="Make Offer" form>
+    <Page title='Make Offer' form>
       <IonList>
-        <IonItem className="item-interactive">
+        <IonItem className='item-interactive'>
           <IonLabel>Water Type: {listing.waterType}</IonLabel>
         </IonItem>
-        <IonItem className="item-interactive">
+        <IonItem className='item-interactive'>
           <IonLabel>Available Volume: {listing.volume} AF</IonLabel>
         </IonItem>
         {listing.partialPurchaseOk && (
-          <IonItem className="item-interactive">
+          <IonItem className='item-interactive'>
             <IonLabel>
               Minimum Purchase Volume: {listing.minimumVolume} AF
             </IonLabel>
           </IonItem>
         )}
         {!listing.partialPurchaseOk && (
-          <IonItem className="item-interactive">
+          <IonItem className='item-interactive'>
             <IonLabel>No Partial Purchases</IonLabel>
           </IonItem>
         )}
         {listing.partialPurchaseOk && (
-          <IonItem className="item-interactive">
+          <IonItem className='item-interactive'>
             <IonLabel>Minumum Purchase: {listing.minimumVolume} AF</IonLabel>
           </IonItem>
         )}
-        <IonItem className="item-interactive">
+        <IonItem className='item-interactive'>
           <IonLabel>Listed Price: ${listing.price}/AF</IonLabel>
         </IonItem>
         {counterOfferShown && (
           <IonItem>
-            <IonLabel color="primary" position="floating">
+            <IonLabel color='primary' position='floating'>
               Set Counter Price ($/AF):
             </IonLabel>
             <IonInput
-              type="number"
-              inputMode="numeric"
+              type='number'
+              inputMode='numeric'
               value={counterPrice}
               onInput={e => setCounterPrice(e.target.value)}
             />
@@ -118,12 +118,12 @@ export const MakeOfferPage = ({ match }) => {
         )}
         {partialPurchaseShown && (
           <IonItem>
-            <IonLabel color="primary" position="floating">
+            <IonLabel color='primary' position='floating'>
               Volume You'd Like to Buy (AF)
             </IonLabel>
             <IonInput
-              type="number"
-              inputMode="numeric"
+              type='number'
+              inputMode='numeric'
               value={partialVolume}
               onInput={e => setPartialVolume(e.target.value)}
             />
@@ -134,14 +134,14 @@ export const MakeOfferPage = ({ match }) => {
         {listing.partialPurchaseOk && (
           <IonItem
             button
-            color="medium"
-            lines="full"
+            color='medium'
+            lines='full'
             onClick={() => {
               setPartialPurchaseShown(!partialPurchaseShown);
               setPartialVolume(listing.volume);
             }}
           >
-            <IonLabel position="inline" className="ion-text-center">
+            <IonLabel position='inline' className='ion-text-center'>
               Click Here to {partialPurchaseShown ? 'Cancel Buying' : 'Buy'}{' '}
               Part
             </IonLabel>
@@ -149,13 +149,13 @@ export const MakeOfferPage = ({ match }) => {
         )}
         <IonItem
           button
-          color="dark"
+          color='dark'
           onClick={() => {
             setCounterOfferShown(!counterOfferShown);
             setCounterPrice(listing.price);
           }}
         >
-          <IonLabel position="inline" className="ion-text-center">
+          <IonLabel position='inline' className='ion-text-center'>
             Click Here To {counterOfferShown ? 'Cancel' : 'Make'} Counter Offer
           </IonLabel>
         </IonItem>
@@ -166,17 +166,17 @@ export const MakeOfferPage = ({ match }) => {
               : 'ion-margin-top'
           }
           button
-          type="submit"
-          color="primary"
+          type='submit'
+          color='primary'
           onClick={() => handleSubmit()}
         >
-          <IonLabel position="inline" className="ion-text-center">
+          <IonLabel position='inline' className='ion-text-center'>
             Submit Your Offer
           </IonLabel>
         </IonItem>
         {priceError && (
           <IonItem
-            color="danger"
+            color='danger'
             className={
               volumeError
                 ? 'item-interactive ion-text-center ion-margin-bottom'
@@ -187,7 +187,7 @@ export const MakeOfferPage = ({ match }) => {
           </IonItem>
         )}
         {volumeError && (
-          <IonItem color="danger" className="item-interactive ion-text-center">
+          <IonItem color='danger' className='item-interactive ion-text-center'>
             <IonLabel>{volumeError}</IonLabel>
           </IonItem>
         )}
