@@ -19,7 +19,7 @@ export const ListingsPage = () => {
     };
     getListings();
   }, []);
-  console.log(listings);
+
   return (
     <Page title='For Sale Listings'>
       <IonGrid>

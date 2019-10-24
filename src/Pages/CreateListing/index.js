@@ -28,7 +28,6 @@ const BaseCreateListingPage = ({ history }) => {
   const handleSubmit = () => {
     setPriceError(null);
     setVolumeError(null);
-    console.log(price, volume, waterType, partialPurchaseOk, minimumVolume);
     if (!price) {
       setPriceError('Price must be set');
     }
@@ -63,49 +62,49 @@ const BaseCreateListingPage = ({ history }) => {
   };
 
   return (
-    <Page title="Create Listing" form>
+    <Page title='Create Listing' form>
       <IonList>
         <IonItem>
-          <IonLabel position="floating">Asking Price:</IonLabel>
+          <IonLabel position='floating'>Asking Price:</IonLabel>
           <IonInput
             onInput={e => setPrice(e.target.value)}
             value={price}
-            type="number"
-            inputMode="numeric"
+            type='number'
+            inputMode='numeric'
           />
         </IonItem>
         <IonItem>
-          <IonLabel position="floating">Water Volume:</IonLabel>
+          <IonLabel position='floating'>Water Volume:</IonLabel>
           <IonInput
             onInput={e => setVolume(e.target.value)}
             value={volume}
-            type="number"
-            inputMode="numeric"
+            type='number'
+            inputMode='numeric'
           />
         </IonItem>
         <IonItem>
-          <IonLabel position="floating">Water Type:</IonLabel>
+          <IonLabel position='floating'>Water Type:</IonLabel>
           <IonSelect
-            interface="action-sheet"
+            interface='action-sheet'
             value={waterType}
             onChange={e => setWaterType(e.target.value)}
           >
-            <IonSelectOption value="Current Year Project Water">
+            <IonSelectOption value='Current Year Project Water'>
               Current Year Project Water
             </IonSelectOption>
-            <IonSelectOption value="Other Type">Other Type</IonSelectOption>
+            <IonSelectOption value='Other Type'>Other Type</IonSelectOption>
           </IonSelect>
         </IonItem>
         {partialPurchaseOk && (
           <IonItem>
-            <IonLabel position="floating">
+            <IonLabel position='floating'>
               Minimum Purchase Volume (AF)
             </IonLabel>
             <IonInput
               onInput={e => setMinimumVolume(e.target.value)}
               value={minimumVolume}
-              type="number"
-              inputMode="numeric"
+              type='number'
+              inputMode='numeric'
             ></IonInput>
           </IonItem>
         )}
@@ -113,11 +112,11 @@ const BaseCreateListingPage = ({ history }) => {
       <IonList>
         <IonItem
           style={{ cursor: 'pointer' }}
-          type="button"
+          type='button'
           color={partialPurchaseOk ? 'medium' : 'primary'}
           onClick={() => setPartialPurchaseOk(!partialPurchaseOk)}
         >
-          <IonLabel className="ion-text-center">
+          <IonLabel className='ion-text-center'>
             Click To {partialPurchaseOk ? 'Disallow' : 'Allow'} Partial Purchase
           </IonLabel>
         </IonItem>
@@ -125,11 +124,11 @@ const BaseCreateListingPage = ({ history }) => {
       <IonList>
         <IonItem
           style={{ cursor: 'pointer' }}
-          type="button"
+          type='button'
           color={'dark'}
           onClick={() => handleSubmit()}
         >
-          <IonLabel className="ion-text-center">Submit</IonLabel>
+          <IonLabel className='ion-text-center'>Submit</IonLabel>
         </IonItem>
       </IonList>
     </Page>
