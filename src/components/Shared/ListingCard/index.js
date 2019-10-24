@@ -3,11 +3,11 @@ import {
   IonCol,
   IonCard,
   IonCardHeader,
-  IonTitle,
   IonItemDivider,
   IonCardContent,
   IonText,
-  IonButton
+  IonButton,
+  IonCardTitle
 } from '@ionic/react';
 import { Link } from 'react-router-dom';
 import { listings as listingsRoute } from '../../../constants/routes';
@@ -25,13 +25,13 @@ export const ListingCard = ({ listing, myListing }) => {
     <IonCol sizeXs={12} sizeSm={6} sizeMd={6} sizeLg={6} sizeXl={4}>
       <IonCard>
         <IonCardHeader>
-          <IonTitle className='ion-text-center'>
+          <IonCardTitle className='ion-text-center'>
             {volume} AF for {price}$/AF
-          </IonTitle>
+          </IonCardTitle>
           <IonItemDivider />
         </IonCardHeader>
         <IonCardContent className='ion-text-center'>
-          <IonText>Water Type: {waterType}</IonText>
+          <IonText>Type: {waterType}</IonText>
           {offerPending && (
             <IonText style={{ display: 'block' }} color='primary'>
               Offer Pending

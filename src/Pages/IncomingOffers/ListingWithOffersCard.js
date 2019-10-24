@@ -6,7 +6,8 @@ import {
   IonCardHeader,
   IonCardTitle,
   IonButton,
-  IonText
+  IonText,
+  IonItemDivider
 } from '@ionic/react';
 import { Link } from 'react-router-dom';
 
@@ -26,6 +27,7 @@ export const ListingWithOffersCard = ({ listing, offers }) => {
           <IonCardTitle className='ion-text-center'>
             {listing.volume} AF for ${listing.price}/AF
           </IonCardTitle>
+          <IonItemDivider />
         </IonCardHeader>
         <IonCardContent className='ion-text-center'>
           {listing.offerPending && (
@@ -46,7 +48,7 @@ export const ListingWithOffersCard = ({ listing, offers }) => {
           )}
           {relevantOffers.length > 0 && (
             <Link to={listings + '/' + listing._id}>
-              <IonButton expand='full'>
+              <IonButton expand='full' className='ion-margin-top'>
                 View {relevantOffers.length} Offer
                 {relevantOffers.length > 1 && 's'} / Remove
                 {relevantOffers.length > 1 && 's'}
@@ -54,7 +56,7 @@ export const ListingWithOffersCard = ({ listing, offers }) => {
             </Link>
           )}
           {relevantOffers.length === 0 && (
-            <IonButton expand='full' color='medium'>
+            <IonButton expand='full' color='medium' className='ion-margin-top'>
               No Offers
             </IonButton>
           )}
