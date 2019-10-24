@@ -47,17 +47,34 @@ export const ListingWithOffersCard = ({ listing, offers }) => {
             </IonText>
           )}
           {relevantOffers.length > 0 && (
+            <IonText color='primary'>
+              {relevantOffers.length} Offer
+              {relevantOffers.length > 1 && 's'}
+            </IonText>
+          )}
+          {relevantOffers.length === 0 && (
+            <IonText color='dark'>No Offers</IonText>
+          )}
+          {relevantOffers.length > 0 && (
             <Link to={listings + '/' + listing._id}>
               <IonButton expand='full' className='ion-margin-top'>
-                View {relevantOffers.length} Offer
-                {relevantOffers.length > 1 && 's'} / Remove
+                View / Remove
               </IonButton>
             </Link>
           )}
           {relevantOffers.length === 0 && (
-            <IonButton expand='full' color='medium' className='ion-margin-top'>
-              No Offers
-            </IonButton>
+            <Link
+              to={listings + '/' + listing._id}
+              style={{ textDecoration: 'none' }}
+            >
+              <IonButton
+                expand='full'
+                color='medium'
+                className='ion-margin-top'
+              >
+                View / Remove
+              </IonButton>
+            </Link>
           )}
         </IonCardContent>
       </IonCard>
