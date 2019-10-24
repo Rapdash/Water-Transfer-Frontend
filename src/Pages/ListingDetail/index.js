@@ -2,18 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { IonSpinner } from '@ionic/react';
 import Axios from 'axios';
 
+import { MakeOfferView } from './MakeOfferView';
+
 export const ListingDetailPage = ({ match }) => {
   const [loading, setLoading] = useState(true);
   const [listing, setListing] = useState(null);
-
-  const [counterOfferShown, setCounterOfferShown] = useState(false);
-  const [counterPrice, setCounterPrice] = useState(null);
-  const [priceError, setPriceError] = useState(null);
-
-  const [partialPurchaseShown, setPartialPurchaseShown] = useState(false);
-  const [partialVolume, setPartialVolume] = useState(null);
-  const [volumeError, setVolumeError] = useState(null);
-
   const listingId = match.params.id;
 
   useEffect(() => {
@@ -33,7 +26,11 @@ export const ListingDetailPage = ({ match }) => {
   }, [listingId]);
 
   if (loading) return <IonSpinner />;
-  console.log(listing);
 
-  return <>{listing.creatorId && <div>lol</div>}</>;
+  return (
+    <>
+      {listing.creatorId && <div>lol</div>}
+      {!listing.creatorId && <MakeOfferView listing={listing} />}
+    </>
+  );
 };
