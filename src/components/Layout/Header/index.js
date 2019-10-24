@@ -12,17 +12,17 @@ import { menu } from 'ionicons/icons';
 
 export const Header = () => (
   <IonHeader>
-    <IonToolbar color="primary">
-      <IonButtons slot="start">
+    <IonToolbar color='primary'>
+      <IonButtons slot='start'>
         <IonMenuToggle>
           <IonButton>
             <IonIcon icon={menu} />
           </IonButton>
         </IonMenuToggle>
       </IonButtons>
-      <IonTitle className="ion-text-center">Water Transfer Platform</IonTitle>
+      <IonTitle className='ion-text-center'>The Water Agency Inc.</IonTitle>
       {/* This Button Just for Specing */}
-      <IonButtons slot="end">
+      <IonButtons slot='end'>
         <IonButton>
           <IonIcon />
         </IonButton>
