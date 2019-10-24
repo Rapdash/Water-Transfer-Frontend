@@ -34,7 +34,6 @@ export const Routes = () => (
     <AuthedRoute path={incomingOffers} exact component={IncomingOffersPage} />
     <AuthedRoute path={listings} exact component={ListingsPage} />
     <AuthedRoute path={createListing} exact component={CreateListingPage} />
-    <AuthedRoute path={myListings} exact component={MyListingsPage} />
     <AuthedRoute path={listingDetail} exact component={ListingDetailPage} />
     {/* Non-Authed */}
     <NonAuthedRoute path={login} exact component={LoginPage} />

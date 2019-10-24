@@ -6,7 +6,7 @@ import {
   mailOpen,
   water,
   list,
-  returnRight,
+  // returnRight,
   add,
   person,
   arrowRoundBack,
@@ -16,7 +16,6 @@ import {
   login,
   accessRequest,
   listings,
-  myListings,
   incomingOffers,
   createListing,
   account,
@@ -31,8 +30,11 @@ export const menuRoutes = {
   ],
   loggedInPages: [
     { title: 'For Sale', path: listings, icon: water },
-    { title: 'My Listings', path: myListings, icon: list },
-    { title: 'Incoming Offers', path: incomingOffers, icon: returnRight },
+    {
+      title: 'My Listings / Incoming Offers',
+      path: incomingOffers,
+      icon: list
+    },
     { title: 'Create New Listing', path: createListing, icon: add },
     { title: 'Account Management', path: account, icon: person },
     { title: 'Log Out', path: logout, icon: arrowRoundBack },
