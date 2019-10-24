@@ -8,6 +8,9 @@ import {
   IonCardSubtitle,
   IonButton
 } from '@ionic/react';
+import { Link } from 'react-router-dom';
+
+import { listings } from '../../constants/routes';
 
 export const ListingWithOffersCard = ({ listing, offers }) => {
   const relevantOffers = offers.filter(offer => {
@@ -30,10 +33,12 @@ export const ListingWithOffersCard = ({ listing, offers }) => {
         {}
         <IonCardContent className='ion-text-center'>
           {relevantOffers.length > 0 && (
-            <IonButton expand='full'>
-              View {relevantOffers.length} Offer
-              {relevantOffers.length > 1 && 's'}
-            </IonButton>
+            <Link to={listings + '/' + listing._id}>
+              <IonButton expand='full'>
+                View {relevantOffers.length} Offer
+                {relevantOffers.length > 1 && 's'}
+              </IonButton>
+            </Link>
           )}
           {relevantOffers.length === 0 && (
             <IonButton expand='full' color='medium'>
