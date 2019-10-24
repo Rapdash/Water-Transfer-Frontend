@@ -13,7 +13,6 @@ import {
   ListingsPage,
   ListingDetailPage,
   CreateListingPage,
-  MyListingsPage,
   IncomingOffersPage
 } from '../../Pages';
 
@@ -23,7 +22,6 @@ import {
   listings,
   listingDetail,
   createListing,
-  myListings,
   incomingOffers
 } from '../../constants/routes';
 
