@@ -4,7 +4,7 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
 
-import { PrivateRoute } from './PrivateRoute';
+import { AuthedRoute } from './AuthedRoute';
 import { NonAuthedRoute } from './NonAuthedRoute';
 
 import {
@@ -15,7 +15,7 @@ import {
   CreateListingPage,
   MyListingsPage,
   IncomingOffersPage
-} from '../../../Pages';
+} from '../../Pages';
 
 import {
   logout,
@@ -25,18 +25,18 @@ import {
   createListing,
   myListings,
   incomingOffers
-} from '../../../constants/routes';
+} from '../../constants/routes';
 
 export const Routes = () => (
   <>
     <Switch>
       {/* Authed */}
-      <PrivateRoute path={logout} component={LogoutPage} />
-      <PrivateRoute path={makeOffer} component={MakeOfferPage} />
-      <PrivateRoute path={incomingOffers} component={IncomingOffersPage} />
-      <PrivateRoute path={listings} component={ListingsPage} />
-      <PrivateRoute path={createListing} component={CreateListingPage} />
-      <PrivateRoute path={myListings} component={MyListingsPage} />
+      <AuthedRoute path={logout} component={LogoutPage} />
+      <AuthedRoute path={makeOffer} component={MakeOfferPage} />
+      <AuthedRoute path={incomingOffers} component={IncomingOffersPage} />
+      <AuthedRoute path={listings} component={ListingsPage} />
+      <AuthedRoute path={createListing} component={CreateListingPage} />
+      <AuthedRoute path={myListings} component={MyListingsPage} />
       {/* Non-Authed */}
       <NonAuthedRoute path={login} exact component={LoginPage} />
     </Switch>
