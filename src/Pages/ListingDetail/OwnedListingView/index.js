@@ -1,5 +1,5 @@
 import React from 'react';
-import { Page } from '../../components/shared';
+import { Page } from '../../../components/shared';
 import { IonList, IonItem, IonLabel } from '@ionic/react';
 
 export const OwnedListingView = ({ listing }) => {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
 import { IonList, IonItem, IonLabel, IonInput } from '@ionic/react';
-import { Page } from '../../components/shared/Page';
+import { Page } from '../../../components/shared/Page';
 
 export const MakeOfferView = ({ listing }) => {
   const [counterOfferShown, setCounterOfferShown] = useState(false);
