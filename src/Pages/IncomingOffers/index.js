@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import Axios from 'axios';
 
 import { Page } from '../../components/shared';
 
 export const IncomingOffersPage = () => {
-  return <Page title="Incoming Offers"></Page>;
+  useEffect(() => {}, []);
+  return <Page title='Incoming Offers'></Page>;
 };
