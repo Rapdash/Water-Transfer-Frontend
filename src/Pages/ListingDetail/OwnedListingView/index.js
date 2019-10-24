@@ -1,16 +1,6 @@
 import React from 'react';
 import { Page } from '../../../components/shared';
-import {
-  IonList,
-  IonItem,
-  IonLabel,
-  IonGrid,
-  IonCard,
-  IonCardHeader,
-  IonCol,
-  IonRow,
-  IonCardTitle
-} from '@ionic/react';
+import { IonList, IonItem, IonLabel, IonGrid, IonRow } from '@ionic/react';
 import { Form } from '../../../components/shared/Form';
 import { OwnedListingOfferCard } from './OwnedListingOfferCard';
 
