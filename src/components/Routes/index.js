@@ -28,17 +28,15 @@ import {
 } from '../../constants/routes';
 
 export const Routes = () => (
-  <>
-    <Switch>
-      {/* Authed */}
-      <AuthedRoute path={logout} exact component={LogoutPage} />
-      <AuthedRoute path={incomingOffers} exact component={IncomingOffersPage} />
-      <AuthedRoute path={listings} exact component={ListingsPage} />
-      <AuthedRoute path={createListing} exact component={CreateListingPage} />
-      <AuthedRoute path={myListings} exact component={MyListingsPage} />
-      <AuthedRoute path={listingDetail} exact component={MakeOfferPage} />
-      {/* Non-Authed */}
-      <NonAuthedRoute path={login} exact component={LoginPage} />
-    </Switch>
-  </>
+  <Switch>
+    {/* Authed */}
+    <AuthedRoute path={logout} exact component={LogoutPage} />
+    <AuthedRoute path={incomingOffers} exact component={IncomingOffersPage} />
+    <AuthedRoute path={listings} exact component={ListingsPage} />
+    <AuthedRoute path={createListing} exact component={CreateListingPage} />
+    <AuthedRoute path={myListings} exact component={MyListingsPage} />
+    <AuthedRoute path={listingDetail} exact component={MakeOfferPage} />
+    {/* Non-Authed */}
+    <NonAuthedRoute path={login} exact component={LoginPage} />
+  </Switch>
 );
