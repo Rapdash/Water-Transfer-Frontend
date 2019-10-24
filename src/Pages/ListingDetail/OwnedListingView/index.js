@@ -1,15 +1,6 @@
 import React from 'react';
 import { Page } from '../../../components/shared';
-import {
-  IonList,
-  IonItem,
-  IonLabel,
-  IonGrid,
-  IonRow,
-  IonCol,
-  IonCard,
-  IonCardContent
-} from '@ionic/react';
+import { IonList, IonItem, IonLabel } from '@ionic/react';
 import { Form } from '../../../components/shared/Form';
 
 export const OwnedListingView = ({ listing }) => {

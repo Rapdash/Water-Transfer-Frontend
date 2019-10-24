@@ -17,7 +17,10 @@ export const Form = ({ children }) => (
         offsetXl={3}
       >
         <IonCard>
-          <IonCardContent>{children}</IonCardContent>
+          <IonCardContent className='ion-hide-sm-down'>
+            {children}
+          </IonCardContent>
+          <div className='ion-hide-md-up'>{children}</div>
         </IonCard>
       </IonCol>
     </IonRow>
