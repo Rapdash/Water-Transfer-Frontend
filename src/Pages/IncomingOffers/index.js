@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 
-import { Page } from '../../components/shared';
+import { Page, NoDataCard } from '../../components/shared';
 
 export const IncomingOffersPage = () => {
   const [offers, setOffers] = useState(null);
@@ -15,5 +15,14 @@ export const IncomingOffersPage = () => {
     getOffers();
   }, []);
   console.log(offers);
-  return <Page title='Incoming Offers'></Page>;
+  return (
+    <Page title='Incoming Offers'>
+      {!offers && (
+        <NoDataCard
+          cardInfo='Nobody has made offers on your listings yet.'
+          cardTitle='No Offers'
+        />
+      )}
+    </Page>
+  );
 };
