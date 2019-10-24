@@ -10,7 +10,7 @@ import {
 } from '@ionic/react';
 import { Link } from 'react-router-dom';
 
-import { listings, lis } from '../../constants/routes';
+import { listings } from '../../constants/routes';
 
 export const ListingWithOffersCard = ({ listing, offers }) => {
   const relevantOffers = offers.filter(offer => {
