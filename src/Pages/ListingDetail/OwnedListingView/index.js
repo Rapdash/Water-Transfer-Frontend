@@ -1,6 +1,16 @@
 import React from 'react';
 import { Page } from '../../../components/shared';
-import { IonList, IonItem, IonLabel } from '@ionic/react';
+import {
+  IonList,
+  IonItem,
+  IonLabel,
+  IonGrid,
+  IonCard,
+  IonCardHeader,
+  IonCol,
+  IonRow,
+  IonCardTitle
+} from '@ionic/react';
 import { Form } from '../../../components/shared/Form';
 
 export const OwnedListingView = ({ listing }) => {
@@ -36,6 +46,19 @@ export const OwnedListingView = ({ listing }) => {
           </IonItem>
         </IonList>
       </Form>
+      <IonGrid>
+        <IonRow>
+          <IonCol sizeXs={12} sizeSm={8} sizeMd={6} sizeLg={6} sizeXl={4}>
+            <IonCard>
+              <IonCardHeader>
+                <IonCardTitle className='ion-text-center'>
+                  {listing.volume} AF for ${listing.price}/AF
+                </IonCardTitle>
+              </IonCardHeader>
+            </IonCard>
+          </IonCol>
+        </IonRow>
+      </IonGrid>
     </Page>
   );
 };
