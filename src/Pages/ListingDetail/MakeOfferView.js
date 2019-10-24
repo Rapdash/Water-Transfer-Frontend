@@ -20,13 +20,15 @@ export const MakeOfferView = ({ listing }) => {
     if (counterPrice < 0) {
       setPriceError('Price Must Be Above 0');
     }
+
     if (counterPrice > listing.price) {
       setPriceError(`Price Must Be Below $${listing.price}/AF`);
     }
 
-    if (partialVolume >= listing.minimumVolume) {
+    if (partialVolume > listing.minimumVolume - 1) {
       setVolumeError(`Volume Must Be Above ${listing.minimumVolume} AF`);
     }
+
     if (partialVolume > listing.volume) {
       setVolumeError(`Volume must be below ${listing.volume} AF`);
     }
@@ -60,13 +62,6 @@ export const MakeOfferView = ({ listing }) => {
         <IonItem className='item-interactive'>
           <IonLabel>Available Volume: {listing.volume} AF</IonLabel>
         </IonItem>
-        {listing.partialPurchaseOk && (
-          <IonItem className='item-interactive'>
-            <IonLabel>
-              Minimum Purchase Volume: {listing.minimumVolume} AF
-            </IonLabel>
-          </IonItem>
-        )}
         {!listing.partialPurchaseOk && (
           <IonItem className='item-interactive'>
             <IonLabel>No Partial Purchases</IonLabel>
