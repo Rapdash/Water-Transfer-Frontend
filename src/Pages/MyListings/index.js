@@ -22,7 +22,7 @@ export const MyListingsPage = () => {
     };
     getListings();
   }, []);
-  console.log(listings);
+
   return (
     <Page title="My Listings">
       <IonGrid>
