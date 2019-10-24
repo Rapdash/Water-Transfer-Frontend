@@ -4,7 +4,7 @@ import Axios from 'axios';
 
 import { ListingCard } from '../../components/shared/ListingCard';
 import { Page } from '../../components/shared/Page';
-import { NoListingCard } from '../../components/shared/NoListingCard';
+import { NoDataCard } from '../../components/shared/NoDataCard';
 
 export const ListingsPage = () => {
   const [listings, setListings] = useState([]);
@@ -21,7 +21,7 @@ export const ListingsPage = () => {
   }, []);
   console.log(listings);
   return (
-    <Page title="For Sale Listings">
+    <Page title='For Sale Listings'>
       <IonGrid>
         <IonRow>
           {listings &&
@@ -29,7 +29,13 @@ export const ListingsPage = () => {
             listings.map(listing => (
               <ListingCard listing={listing} key={listing._id} />
             ))}
-          {!listings || (!listings[0] && <NoListingCard />)}
+          {!listings ||
+            (!listings[0] && (
+              <NoDataCard
+                cardInfo='There are no listings from other users.'
+                cardTitle='No Listings'
+              />
+            ))}
         </IonRow>
       </IonGrid>
     </Page>

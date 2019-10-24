@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { IonGrid, IonRow } from '@ionic/react';
 import Axios from 'axios';
 
-import { Page, ListingCard, NoListingCard } from '../../components/shared';
+import { Page, ListingCard, NoDataCard } from '../../components/shared';
 
 export const MyListingsPage = () => {
   const [listings, setListings] = useState([]);
@@ -24,7 +24,7 @@ export const MyListingsPage = () => {
   }, []);
 
   return (
-    <Page title="My Listings">
+    <Page title='My Listings'>
       <IonGrid>
         <IonRow>
           {listings &&
@@ -32,7 +32,13 @@ export const MyListingsPage = () => {
             listings.map(listing => (
               <ListingCard listing={listing} key={listing._id} myListing />
             ))}
-          {!listings || (!listings[0] && <NoListingCard myListings />)}
+          {!listings ||
+            (!listings[0] && (
+              <NoDataCard
+                cardInfo="You don't have any active listings"
+                cardTitle='No Listings'
+              />
+            ))}
         </IonRow>
       </IonGrid>
     </Page>

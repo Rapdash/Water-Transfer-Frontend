@@ -8,7 +8,7 @@ import {
   IonText
 } from '@ionic/react';
 
-export const NoListingCard = ({ cardInfo, cardTitle }) => (
+export const NoDataCard = ({ cardInfo, cardTitle }) => (
   <IonCol
     sizeXs={12}
     sizeSm={8}

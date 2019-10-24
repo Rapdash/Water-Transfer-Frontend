@@ -1,3 +1,3 @@
 export { ListingCard } from './ListingCard';
-export { NoListingCard } from './NoListingCard';
+export { NoDataCard } from './NoDataCard';
 export { Page } from './Page';
