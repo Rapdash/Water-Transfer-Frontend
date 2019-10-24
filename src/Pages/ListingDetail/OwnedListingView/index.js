@@ -12,6 +12,7 @@ import {
   IonCardTitle
 } from '@ionic/react';
 import { Form } from '../../../components/shared/Form';
+import { OwnedListingOfferCard } from './OwnedListingOfferCard';
 
 export const OwnedListingView = ({ listing }) => {
   return (
@@ -48,15 +49,7 @@ export const OwnedListingView = ({ listing }) => {
       </Form>
       <IonGrid>
         <IonRow>
-          <IonCol sizeXs={12} sizeSm={8} sizeMd={6} sizeLg={6} sizeXl={4}>
-            <IonCard>
-              <IonCardHeader>
-                <IonCardTitle className='ion-text-center'>
-                  {listing.volume} AF for ${listing.price}/AF
-                </IonCardTitle>
-              </IonCardHeader>
-            </IonCard>
-          </IonCol>
+          <OwnedListingOfferCard listing={listing} />
         </IonRow>
       </IonGrid>
     </Page>
