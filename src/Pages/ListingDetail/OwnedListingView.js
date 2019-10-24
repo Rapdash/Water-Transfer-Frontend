@@ -4,7 +4,7 @@ import { IonList, IonItem, IonLabel } from '@ionic/react';
 
 export const OwnedListingView = ({ listing }) => {
   return (
-    <Page title='Listing Editing & Offers' form>
+    <Page title='View Listing & Offers' form>
       <IonList>
         <IonItem className='item-interactive'>
           <IonLabel>Water Type: {listing.waterType}</IonLabel>
