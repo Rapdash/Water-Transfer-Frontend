@@ -30,13 +30,15 @@ export const ListingWithOffersCard = ({ listing, offers }) => {
         {}
         <IonCardContent className='ion-text-center'>
           {relevantOffers.length > 0 && (
-            <IonButton>
+            <IonButton expand='full'>
               View {relevantOffers.length} Offer
               {relevantOffers.length > 1 && 's'}
             </IonButton>
           )}
           {relevantOffers.length === 0 && (
-            <IonButton color='medium'>No Offers</IonButton>
+            <IonButton expand='full' color='medium'>
+              No Offers
+            </IonButton>
           )}
         </IonCardContent>
       </IonCard>
