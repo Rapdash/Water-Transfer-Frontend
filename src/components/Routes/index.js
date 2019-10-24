@@ -6,7 +6,6 @@ import { Switch } from 'react-router-dom';
 
 import { AuthedRoute } from './AuthedRoute';
 import { NonAuthedRoute } from './NonAuthedRoute';
-import { AuthedListingRoute } from './AuthedListingRoute';
 
 import {
   LoginPage,
@@ -32,13 +31,12 @@ export const Routes = () => (
   <>
     <Switch>
       {/* Authed */}
-      <AuthedRoute path={logout} component={LogoutPage} />
-      <AuthedRoute path={listingDetail} component={MakeOfferPage} />
-      <AuthedRoute path={incomingOffers} component={IncomingOffersPage} />
-      <AuthedRoute path={listings} component={ListingsPage} />
-      <AuthedRoute path={createListing} component={CreateListingPage} />
-      <AuthedRoute path={myListings} component={MyListingsPage} />
-      <AuthedListingRoute path={listingDetail} />
+      <AuthedRoute path={logout} exact component={LogoutPage} />
+      <AuthedRoute path={incomingOffers} exact component={IncomingOffersPage} />
+      <AuthedRoute path={listings} exact component={ListingsPage} />
+      <AuthedRoute path={createListing} exact component={CreateListingPage} />
+      <AuthedRoute path={myListings} exact component={MyListingsPage} />
+      <AuthedRoute path={listingDetail} exact component={MakeOfferPage} />
       {/* Non-Authed */}
       <NonAuthedRoute path={login} exact component={LoginPage} />
     </Switch>
