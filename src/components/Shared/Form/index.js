@@ -3,9 +3,10 @@ import React from 'react';
 import { IonGrid, IonRow, IonCol, IonCard, IonCardContent } from '@ionic/react';
 
 export const Form = ({ children }) => (
-  <IonGrid style={{ margin: 0 }}>
+  <IonGrid style={{ margin: 0, padding: 0 }}>
     <IonRow>
       <IonCol
+        style={{ padding: 0 }}
         sizeXs={12}
         sizeSm={10}
         offsetSm={1}
@@ -17,10 +18,7 @@ export const Form = ({ children }) => (
         offsetXl={3}
       >
         <IonCard>
-          <IonCardContent className='ion-hide-sm-down'>
-            {children}
-          </IonCardContent>
-          <div className='ion-hide-md-up'>{children}</div>
+          <div style={{ paddingLeft: 8, paddingRight: 8 }}>{children}</div>
         </IonCard>
       </IonCol>
     </IonRow>

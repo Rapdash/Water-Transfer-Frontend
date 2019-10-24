@@ -20,7 +20,12 @@ export const Header = () => (
           </IonButton>
         </IonMenuToggle>
       </IonButtons>
-      <IonTitle className='ion-text-center'>The Water Agency Inc.</IonTitle>
+      <IonTitle className='ion-text-center' style={{ fontWeight: 'bold' }}>
+        Water Exchange Tool{' '}
+        <span style={{ fontWeight: 'normal' }} className='ion-hide-sm-down'>
+          by The Water Agency Inc.
+        </span>
+      </IonTitle>
       {/* This Button Just for Specing */}
       <IonButtons slot='end'>
         <IonButton>

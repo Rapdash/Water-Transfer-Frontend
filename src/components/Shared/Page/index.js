@@ -17,7 +17,7 @@ export const Page = ({ title, form, children }) => (
           {title}
         </IonCardTitle>
       </IonCardHeader>
-      <IonCardContent>
+      <IonCardContent style={{ paddingLeft: 8, paddingRight: 8 }}>
         {/* For Not-Otherwise-Specified Views */}
         {!form && children}
 
