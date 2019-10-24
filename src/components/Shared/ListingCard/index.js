@@ -57,7 +57,7 @@ export const ListingCard = ({ listing, myListing }) => {
           {myListing && (
             <Link to={listingsRoute + '/' + _id}>
               <IonButton class='ion-margin-top' expand='full'>
-                View / Remove
+                View Offers / Remove
               </IonButton>
             </Link>
           )}
