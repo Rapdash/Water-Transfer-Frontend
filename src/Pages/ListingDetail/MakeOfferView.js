@@ -25,7 +25,8 @@ export const MakeOfferView = ({ listing }) => {
       setPriceError(`Price Must Be Below $${listing.price}/AF`);
     }
 
-    if (partialVolume > listing.minimumVolume - 1) {
+    console.log(partialVolume, listing.minimumVolume);
+    if (listing.minimumVolume > partialVolume) {
       setVolumeError(`Volume Must Be Above ${listing.minimumVolume} AF`);
     }
 
@@ -36,6 +37,7 @@ export const MakeOfferView = ({ listing }) => {
     if (!partialVolume) {
       setPartialVolume(listing.volume);
     }
+
     if (!counterPrice) {
       setCounterPrice(listing.price);
     }
@@ -97,7 +99,7 @@ export const MakeOfferView = ({ listing }) => {
               type='number'
               inputMode='numeric'
               value={partialVolume}
-              onInput={e => setPartialVolume(e.target.value)}
+              onInput={e => setPartialVolume(parseInt(e.target.value))}
             />
           </IonItem>
         )}
