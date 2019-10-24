@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { IonRow, IonGrid } from '@ionic/react';
 import Axios from 'axios';
 
 import { Page, NoDataCard } from '../../components/shared';
@@ -45,7 +46,9 @@ export const IncomingOffersPage = () => {
           cardTitle='No Offers'
         />
       )}
-      {offers && listings && renderListingWithOffersCards()}
+      <IonGrid>
+        <IonRow>{offers && listings && renderListingWithOffersCards()}</IonRow>
+      </IonGrid>
     </Page>
   );
 };

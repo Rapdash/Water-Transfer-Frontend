@@ -18,17 +18,7 @@ export const ListingWithOffersCard = ({ listing, offers }) => {
     return false;
   });
   return (
-    <IonCol
-      sizeXs={12}
-      sizeSm={8}
-      offsetSm={2}
-      sizeMd={6}
-      offsetMd={3}
-      sizeLg={6}
-      offsetLg={3}
-      sizeXl={4}
-      offsetXl={4}
-    >
+    <IonCol sizeXs={12} sizeSm={8} sizeMd={6} sizeLg={6} sizeXl={4}>
       <IonCard>
         <IonCardHeader>
           <IonCardTitle className='ion-text-center'>
